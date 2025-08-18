@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresho - AI-Powered Google Ads That Actually Work</title>
+    <!-- 
+    Logo Setup: Make sure fresho.png is in the same directory as this HTML file.
+    The logo will automatically appear in the navigation, mobile menu, and footer.
+    -->
     <style>
         * {
             margin: 0;
@@ -53,26 +57,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         .logo img {
-            height: 40px;
+            height: 50px;
             width: auto;
-        }
-        
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-        
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            object-fit: contain;
         }
         
         .nav-links {
@@ -171,7 +168,7 @@
             box-shadow: -5px 0 20px rgba(0,0,0,0.1);
             transition: right 0.3s ease;
             z-index: 999;
-            padding: 80px 30px 30px;
+            padding: 30px 30px 30px;
         }
         
         .mobile-menu.active {
@@ -726,12 +723,8 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .footer-brand h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .footer-brand {
+            max-width: 400px;
         }
         
         .footer-brand p {
@@ -824,6 +817,10 @@
                 display: flex;
             }
             
+            .logo img {
+                height: 45px;
+            }
+            
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -910,8 +907,8 @@
         }
         
         @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1.5rem;
+            .logo img {
+                height: 40px;
             }
             
             nav {
@@ -941,13 +938,13 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
-                <span class="logo-text">Fresho</span>
-            </div>
+            <a href="#top" class="logo">
+                <img src="fresho.png" alt="Fresho Logo">
+            </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
@@ -965,6 +962,11 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid rgba(99, 102, 241, 0.1);">
+            <a href="#top" onclick="setTimeout(toggleMobileMenu, 100);">
+                <img src="fresho.png" alt="Fresho Logo" style="height: 50px;">
+            </a>
+        </div>
         <div class="mobile-menu-links">
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
@@ -1178,7 +1180,11 @@
         <div class="footer-content">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <h3>Fresho</h3>
+                    <div style="margin-bottom: 1rem;">
+                        <a href="#top" style="text-decoration: none;">
+                            <img src="fresho.png" alt="Fresho Logo" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.9; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+                        </a>
+                    </div>
                     <p>AI-powered Google Ads automation that delivers real results. Save time, reduce costs, and scale your campaigns with confidence.</p>
                     <div class="footer-social">
                         <a href="#">📧</a>
