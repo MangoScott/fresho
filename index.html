@@ -1038,10 +1038,10 @@
     <div class="video-modal" id="videoModal">
         <div class="video-container">
             <div class="close-video" onclick="closeVideoModal()">×</div>
-            <video controls autoplay id="demoVideo">
+            <video controls id="demoVideo" preload="metadata">
+                <source src="./fresho.mp4" type="video/mp4">
                 <source src="fresho.mp4" type="video/mp4">
-                <source src="https://youtu.be/eOhovBRs-38?feature=shared" type="video/mp4">
-                Your browser does not support the video tag.
+                Your browser does not support the video tag. <a href="https://youtu.be/eOhovBRs-38?feature=shared" target="_blank">Watch on YouTube</a>
             </video>
         </div>
     </div>
@@ -1422,8 +1422,11 @@
             const video = document.getElementById('demoVideo');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Play video when modal opens
-            video.play();
+            // Try to play video when modal opens (may be blocked by browser)
+            video.play().catch(e => {
+                console.log('Video autoplay was prevented:', e);
+                // Video will still be shown with controls for manual play
+            });
         }
 
         function closeVideoModal() {
