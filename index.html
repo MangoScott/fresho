@@ -228,6 +228,90 @@
             opacity: 1;
         }
         
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            background: black;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .close-video {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 24px;
+            line-height: 1;
+        }
+        
+        .close-video:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        @media (max-width: 768px) {
+            .video-container {
+                width: 95%;
+            }
+            
+            .close-video {
+                top: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.7);
+            }
+        }
+        
         /* Hero Section */
         .hero {
             padding: 120px 2rem 80px;
@@ -941,6 +1025,18 @@
     </style>
 </head>
 <body id="top">
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <div class="close-video" onclick="closeVideoModal()">×</div>
+            <video controls autoplay id="demoVideo">
+                <source src="fresho.mp4" type="video/mp4">
+                <source src="https://youtu.be/eOhovBRs-38?feature=shared" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -951,8 +1047,8 @@
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
-                <a href="https://app.fresho.dev/signin/" class="sign-in-button">Sign In</a>
-                <a href="https://app.fresho.dev/signin/" class="cta-button">Start Free Trial</a>
+                <a href="https://app.fresho.dev/signin/" class="sign-in-button" target="_blank" rel="noopener noreferrer">Sign In</a>
+                <a href="https://app.fresho.dev/signin/" class="cta-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -973,8 +1069,8 @@
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
-            <a href="https://app.fresho.dev/signin/" class="sign-in-button">Sign In</a>
-            <a href="https://app.fresho.dev/signin/" class="cta-button">Start Free Trial</a>
+            <a href="https://app.fresho.dev/signin/" class="sign-in-button" target="_blank" rel="noopener noreferrer">Sign In</a>
+            <a href="https://app.fresho.dev/signin/" class="cta-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
         </div>
     </div>
     
@@ -988,8 +1084,8 @@
             <h1>Turn URLs into High-Performing Google Ads in Seconds</h1>
             <p class="hero-subtitle">AI-powered ads that write themselves, optimize automatically, and deliver results 24/7. Save 8 hours weekly while improving campaign performance.</p>
             <div class="hero-cta">
-                <a href="https://app.fresho.dev/signin/" class="primary-cta">Start Free 14-Day Trial</a>
-                <a href="https://youtu.be/eOhovBRs-38?feature=shared" class="secondary-cta">Watch Demo</a>
+                <a href="https://app.fresho.dev/signin/" class="primary-cta" target="_blank" rel="noopener noreferrer">Start Free 14-Day Trial</a>
+                <a href="#" class="secondary-cta" onclick="openVideoModal(event)">Watch Demo</a>
             </div>
         </div>
     </section>
@@ -1074,7 +1170,7 @@
                     <li>Email support</li>
                     <li>Monthly performance reports</li>
                 </ul>
-                <a href="https://app.fresho.dev/signin/" class="plan-button">Start Free Trial</a>
+                <a href="https://app.fresho.dev/signin/" class="plan-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
             </div>
             <div class="pricing-card featured">
                 <h3 class="plan-name">GROWTH</h3>
@@ -1088,7 +1184,7 @@
                     <li>Custom integrations</li>
                     <li>Advanced analytics</li>
                 </ul>
-                <a href="https://app.fresho.dev/signin/" class="plan-button">Start Free Trial</a>
+                <a href="https://app.fresho.dev/signin/" class="plan-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
             </div>
             <div class="pricing-card">
                 <h3 class="plan-name">ENTERPRISE</h3>
@@ -1102,11 +1198,11 @@
                     <li>Custom reporting</li>
                     <li>SLA guarantee</li>
                 </ul>
-                <a href="mailto:hello@fresho.dev?subject=Enterprise%20Pricing%20Inquiry" class="plan-button">Contact Sales</a>
+                <a href="mailto:hello@fresho.dev?subject=Enterprise%20Pricing%20Inquiry" class="plan-button" target="_blank" rel="noopener noreferrer">Contact Sales</a>
             </div>
         </div>
         <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
-            💚 Special discount pricing available for nonprofits. <a href="mailto:hello@fresho.dev?subject=Nonprofit%20Discount%20Pricing" style="color: var(--primary);">Contact us</a>
+            💚 Special discount pricing available for nonprofits. <a href="mailto:hello@fresho.dev?subject=Nonprofit%20Discount%20Pricing" style="color: var(--primary);" target="_blank" rel="noopener noreferrer">Contact us</a>
         </p>
     </section>
 
@@ -1173,7 +1269,7 @@
         <div class="final-cta-content">
             <h2>Ready to Transform Your Google Ads?</h2>
             <p>Join thousands of businesses saving time and improving results with AI-powered automation</p>
-            <a href="https://app.fresho.dev/signin/" class="primary-cta">Start Your Free 14-Day Trial</a>
+            <a href="https://app.fresho.dev/signin/" class="primary-cta" target="_blank" rel="noopener noreferrer">Start Your Free 14-Day Trial</a>
         </div>
     </section>
 
@@ -1310,6 +1406,41 @@
             }
             
             lastScroll = currentScroll;
+        });
+
+        // Video Modal Functions
+        function openVideoModal(event) {
+            event.preventDefault();
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('demoVideo');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Play video when modal opens
+            video.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('demoVideo');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            // Pause and reset video when closing
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        // Close video modal on background click
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        // Close video modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('videoModal').classList.contains('active')) {
+                closeVideoModal();
+            }
         });
     </script>
 </body>
