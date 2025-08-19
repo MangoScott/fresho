@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresho - AI-Powered Google Ads That Actually Work</title>
-    <link rel="icon" href="favicon.jpg" type="image/jpeg">
+    <!-- 
+    Logo Setup: Make sure fresho.png is in the same directory as this HTML file.
+    The logo will automatically appear in the navigation, mobile menu, and footer.
+    -->
     <style>
         * {
             margin: 0;
@@ -1031,16 +1034,19 @@
     </style>
 </head>
 <body id="top">
+    <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
         <div class="video-container">
             <div class="close-video" onclick="closeVideoModal()">×</div>
-            <video controls id="demoVideo" style="width: 100%; height: auto; display: block;">
+            <video controls autoplay id="demoVideo">
                 <source src="fresho.mp4" type="video/mp4">
+                <source src="https://youtu.be/eOhovBRs-38?feature=shared" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
     </div>
 
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#top" class="logo">
@@ -1061,6 +1067,7 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid rgba(99, 102, 241, 0.1);">
             <a href="#top" onclick="setTimeout(toggleMobileMenu, 100);">
@@ -1076,8 +1083,10 @@
         </div>
     </div>
     
+    <!-- Mobile Overlay -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <a href="https://www.google.com/partners/agency?id=4582016548" target="_blank" rel="noopener noreferrer" class="badge">🚀 Google Ads Certified Partner</a>
@@ -1090,6 +1099,7 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="stats">
         <div class="stats-container">
             <div class="stat-card">
@@ -1111,35 +1121,334 @@
         </div>
     </section>
 
-    <script>
-        const videoModal = document.getElementById('videoModal');
-        const demoVideo = document.getElementById('demoVideo');
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2 class="section-title">Everything You Need to Succeed with Google Ads</h2>
+            <p class="section-subtitle">Powerful automation that handles the complexity, so you can focus on growth</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Instant Ad Creation</h3>
+                <p class="feature-description">Drop in any URL and watch as Fresho automatically generates compelling, brand-aligned ad copy in seconds. No more writer's block or hours spent crafting the perfect message.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Smart Keyword Discovery</h3>
+                <p class="feature-description">Our AI continuously discovers and tests new keywords, ensuring you never miss opportunities to reach your ideal customers at the right moment.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Real-Time Optimization</h3>
+                <p class="feature-description">Fresho monitors performance 24/7, automatically adjusting bids, pausing underperformers, and scaling winners to maximize your ROI.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 class="feature-title">Automated A/B Testing</h3>
+                <p class="feature-description">Continuously test headlines, descriptions, and landing pages to find what resonates with your audience, all without lifting a finger.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Brand Voice Matching</h3>
+                <p class="feature-description">Fresho learns your brand's unique voice and tone, ensuring every ad feels authentically yours while maintaining consistency across campaigns.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Performance Analytics</h3>
+                <p class="feature-description">Get clear, actionable insights into what's working and why. No more drowning in data – just the metrics that matter for growth.</p>
+            </div>
+        </div>
+    </section>
 
-        // Function to open the video modal and start playing
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">Choose the plan that fits your needs. All plans include a 14-day free trial.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="plan-name">STARTER</h3>
+                <div class="plan-price">$249<span>/month</span></div>
+                <p class="plan-description">Perfect for small businesses</p>
+                <ul class="plan-features">
+                    <li>1 Google Ads account</li>
+                    <li>Unlimited ad creation</li>
+                    <li>24/7 optimization</li>
+                    <li>Email support</li>
+                    <li>Monthly performance reports</li>
+                </ul>
+                <a href="https://app.fresho.dev/signin/" class="plan-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3 class="plan-name">GROWTH</h3>
+                <div class="plan-price">$749<span>/month</span></div>
+                <p class="plan-description">For growing businesses & agencies</p>
+                <ul class="plan-features">
+                    <li>Up to 5 Google Ads accounts</li>
+                    <li>Everything in Starter</li>
+                    <li>Priority support</li>
+                    <li>Weekly performance reports</li>
+                    <li>Custom integrations</li>
+                    <li>Advanced analytics</li>
+                </ul>
+                <a href="https://app.fresho.dev/signin/" class="plan-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+            </div>
+            <div class="pricing-card">
+                <h3 class="plan-name">ENTERPRISE</h3>
+                <div class="plan-price">Custom</div>
+                <p class="plan-description">For large organizations</p>
+                <ul class="plan-features">
+                    <li>Unlimited accounts</li>
+                    <li>Everything in Growth</li>
+                    <li>Dedicated account manager</li>
+                    <li>Live onboarding & training</li>
+                    <li>Custom reporting</li>
+                    <li>SLA guarantee</li>
+                </ul>
+                <a href="mailto:hello@fresho.dev?subject=Enterprise%20Pricing%20Inquiry" class="plan-button" target="_blank" rel="noopener noreferrer">Contact Sales</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
+            💚 Special discount pricing available for nonprofits. <a href="mailto:hello@fresho.dev?subject=Nonprofit%20Discount%20Pricing" style="color: var(--primary);" target="_blank" rel="noopener noreferrer">Contact us</a>
+        </p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about Fresho</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">How quickly can I get started with Fresho?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        You can be up and running in less than 5 minutes! Simply connect your Google Ads account, add your website URLs, and Fresho will immediately start creating and optimizing your campaigns. No technical setup or complex configuration required.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Will Fresho work with my existing Google Ads campaigns?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Absolutely! Fresho can work alongside your existing campaigns or take over management completely. You have full control over which campaigns Fresho manages, and it will respect your existing account structure and settings.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How does Fresho ensure my ads match my brand voice?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Fresho's AI analyzes your website content, existing marketing materials, and any guidelines you provide to understand your unique brand voice. It then generates ads that sound authentically yours, maintaining consistency across all campaigns while testing variations for performance.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What kind of results can I expect?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        While results vary by industry and budget, our users typically see 30-50% improvements in click-through rates, 20-40% reduction in cost per conversion, and save 6-8 hours per week on campaign management. Plus, with 24/7 optimization, your campaigns continuously improve over time.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I need any Google Ads experience?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Not at all! Fresho is designed to be used by anyone, regardless of their Google Ads experience. Our platform handles all the technical complexity behind the scenes. Whether you're a complete beginner or a seasoned pro looking to save time, Fresho adapts to your needs.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I cancel anytime?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Yes! We believe in earning your business every month. You can cancel your subscription at any time with no penalties or hidden fees. Your campaigns will continue running in Google Ads, and you'll retain full access to your account and data.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Ready to Transform Your Ads?</h2>
+            <p>Join thousands of businesses saving time and improving results with AI-powered automation</p>
+            <a href="https://app.fresho.dev/signin/" class="primary-cta" target="_blank" rel="noopener noreferrer">Start Your Free 14-Day Trial</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div style="margin-bottom: 1rem;">
+                        <a href="#top" style="text-decoration: none;">
+                            <img src="fresho.png" alt="Fresho Logo" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.9; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+                        </a>
+                    </div>
+                    <p>AI-powered Google Ads automation that delivers real results. Save time, reduce costs, and scale your campaigns with confidence.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/fresho-dev" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
+                        <a href="mailto:hello@fresho.dev" target="_blank" rel="noopener noreferrer" title="Email">📧</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 Fresho. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+
+        function toggleMobileMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when clicking on links
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't already open
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Video Modal Functions
         function openVideoModal(event) {
             event.preventDefault();
-            videoModal.classList.add('active');
-            // Start playing the video
-            demoVideo.play();
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('demoVideo');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Play video when modal opens
+            video.play();
         }
 
-        // Function to close the modal and stop the video
         function closeVideoModal() {
-            videoModal.classList.remove('active');
-            // Pause the video and reset its time to the beginning
-            demoVideo.pause();
-            demoVideo.currentTime = 0;
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('demoVideo');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            // Pause and reset video when closing
+            video.pause();
+            video.currentTime = 0;
         }
 
-        // Optional: Close the modal if the user clicks on the dark background
-        videoModal.addEventListener('click', (event) => {
-            if (event.target === videoModal) {
+        // Close video modal on background click
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
                 closeVideoModal();
             }
         });
 
-        // NOTE: You may have other scripts for the hamburger menu and FAQ accordion.
-        // This script only handles the video modal.
+        // Close video modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('videoModal').classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
     </script>
 </body>
 </html>
