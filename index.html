@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresho - AI-Powered Google Ads That Actually Work</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="fresho.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="fresho.jpg">
+    <link rel="apple-touch-icon" href="fresho.jpg">
+    
     <!-- 
     Logo Setup: Make sure fresho.png is in the same directory as this HTML file.
     The logo will automatically appear in the navigation, mobile menu, and footer.
@@ -270,8 +276,9 @@
             }
         }
         
-        .video-container video {
+        .video-container iframe {
             width: 100%;
+            aspect-ratio: 16 / 9;
             height: auto;
             display: block;
         }
@@ -916,6 +923,105 @@
                 height: 45px;
             }
             
+            .video-container {
+                width: 95%;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
+            
+            .close-video {
+                top: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.7);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .primary-cta,
+            .secondary-cta {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 100px 1rem 60px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .feature-card {
+                padding: 2rem;
+            }
+            
+            .pricing-card {
+                padding: 2rem;
+            }
+            
+            .faq-question {
+                font-size: 0.95rem;
+                padding: 1.2rem;
+            }
+            
+            .faq-answer-content {
+                font-size: 0.9rem;
+            }
+        }
+            
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1038,11 +1144,15 @@
     <div class="video-modal" id="videoModal">
         <div class="video-container">
             <div class="close-video" onclick="closeVideoModal()">×</div>
-            <video controls id="demoVideo" preload="metadata">
-                <source src="./fresho.mp4" type="video/mp4">
-                <source src="fresho.mp4" type="video/mp4">
-                Your browser does not support the video tag. <a href="https://youtu.be/eOhovBRs-38?feature=shared" target="_blank">Watch on YouTube</a>
-            </video>
+            <iframe 
+                id="youtubeVideo"
+                width="100%" 
+                height="500" 
+                src="" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
 
@@ -1419,24 +1529,24 @@
         function openVideoModal(event) {
             event.preventDefault();
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
+            const iframe = document.getElementById('youtubeVideo');
+            
+            // Set the YouTube video URL with autoplay
+            iframe.src = 'https://www.youtube.com/embed/eOhovBRs-38?autoplay=1&rel=0';
+            
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Try to play video when modal opens (may be blocked by browser)
-            video.play().catch(e => {
-                console.log('Video autoplay was prevented:', e);
-                // Video will still be shown with controls for manual play
-            });
         }
 
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
+            const iframe = document.getElementById('youtubeVideo');
+            
             modal.classList.remove('active');
             document.body.style.overflow = '';
-            // Pause and reset video when closing
-            video.pause();
-            video.currentTime = 0;
+            
+            // Stop the video by clearing the src
+            iframe.src = '';
         }
 
         // Close video modal on background click
