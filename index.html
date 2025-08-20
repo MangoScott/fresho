@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresho - AI-Powered Google Ads That Actually Work</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jpg">
+    
     <!-- 
     Logo Setup: Make sure fresho.png is in the same directory as this HTML file.
     The logo will automatically appear in the navigation, mobile menu, and footer.
@@ -253,6 +258,7 @@
             position: relative;
             width: 90%;
             max-width: 1000px;
+            aspect-ratio: 16/9;
             background: black;
             border-radius: 10px;
             overflow: hidden;
@@ -270,10 +276,11 @@
             }
         }
         
-        .video-container video {
+        .video-container iframe {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
         }
         
         .close-video {
@@ -1038,11 +1045,7 @@
     <div class="video-modal" id="videoModal">
         <div class="video-container">
             <div class="close-video" onclick="closeVideoModal()">×</div>
-            <video controls autoplay id="demoVideo">
-                <source src="fresho.mp4" type="video/mp4">
-                <source src="https://youtu.be/eOhovBRs-38?feature=shared" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <iframe id="demoVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -1419,21 +1422,24 @@
         function openVideoModal(event) {
             event.preventDefault();
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
+            const iframe = document.getElementById('demoVideo');
+            
+            // Set the YouTube embed URL with autoplay
+            iframe.src = 'https://www.youtube.com/embed/eOhovBRs-38?autoplay=1&rel=0';
+            
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Play video when modal opens
-            video.play();
         }
 
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
+            const iframe = document.getElementById('demoVideo');
+            
             modal.classList.remove('active');
             document.body.style.overflow = '';
-            // Pause and reset video when closing
-            video.pause();
-            video.currentTime = 0;
+            
+            // Stop the video by clearing the src
+            iframe.src = '';
         }
 
         // Close video modal on background click
