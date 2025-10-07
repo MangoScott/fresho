@@ -161,6 +161,12 @@
             display: none;
         }
         
+        .mobile-nav-actions {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
         .hamburger span {
             width: 24px;
             height: 2px;
@@ -909,6 +915,14 @@
                 display: block;
             }
             
+            .mobile-nav-actions {
+                display: flex;
+            }
+            
+            .hamburger {
+                padding: 8px;
+            }
+            
             nav {
                 border-bottom: 1px solid var(--gray-200);
             }
@@ -978,11 +992,13 @@
                 <a href="https://app.fresho.dev/signin/" class="btn-nav-secondary" target="_blank" rel="noopener noreferrer">Sign In</a>
                 <a href="https://app.fresho.dev/signin/" class="btn-nav" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
             </div>
-            <a href="https://app.fresho.dev/signin/" class="btn-nav-secondary mobile-signin" target="_blank" rel="noopener noreferrer" style="margin-right: 0;">Sign In</a>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="mobile-nav-actions">
+                <a href="https://app.fresho.dev/signin/" class="btn-nav-secondary mobile-signin" target="_blank" rel="noopener noreferrer">Sign In</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
