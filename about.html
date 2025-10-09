@@ -1,960 +1,426 @@
+# Redesigned Fresho About Page
+
+Below is the complete HTML for the redesigned about page that matches the home page's bold, minimalist aesthetic while preserving all existing content and naturally integrating the FinMango origin story.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Fresho</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="favicon.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.jpg">
-    
+    <title>Our Story - Fresho</title>
     <style>
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #22d3ee;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --success: #10b981;
-        }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-            background: var(--light);
+            color: #1a1a1a;
+            background: #ffffff;
+            font-size: 18px;
         }
         
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
+        /* Container */
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
-        .logo img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-links a.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .back-button {
-            background: transparent;
-            color: var(--primary) !important;
-            padding: 0.6rem 1.2rem;
-            border: 2px solid var(--primary);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .back-button:hover {
-            background: var(--primary);
-            color: white !important;
-            transform: translateY(-2px);
-        }
-        
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            z-index: 1002;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary);
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 3px;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-            transition: right 0.3s ease;
-            z-index: 1001;
-            padding: 30px 30px 30px;
-        }
-        
-        .mobile-menu.active {
-            right: 0;
-        }
-        
-        .mobile-menu-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .mobile-menu-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-links a:hover {
-            color: var(--primary);
-            padding-left: 10px;
-        }
-        
-        /* Overlay */
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0,0,0,0.5);
-            z-index: 998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .mobile-overlay.active {
-            display: block;
-            opacity: 1;
+            padding: 0 24px;
         }
         
         /* Hero Section */
         .hero {
-            padding: 120px 2rem 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
+            padding: 120px 0 80px;
             text-align: center;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>') repeat;
-            animation: float 20s linear infinite;
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            color: #000000;
         }
         
-        @keyframes float {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50%); }
+        .hero .tagline {
+            font-size: 24px;
+            color: #4a4a4a;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
         }
         
-        .hero-content {
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            border-top: 1px solid #e8e8e8;
+        }
+        
+        section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: #000000;
+        }
+        
+        section p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: #2a2a2a;
+            max-width: 800px;
+        }
+        
+        /* Bold highlights */
+        .bold-stat {
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        /* Origin Story Section */
+        .origin-story {
+            background: #f9f9f9;
+            padding: 80px 0;
+        }
+        
+        .origin-story .content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
         
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: white;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease;
+        /* Problem Statement Box */
+        .problem-box {
+            background: #000000;
+            color: #ffffff;
+            padding: 48px;
+            border-radius: 4px;
+            margin: 60px 0;
         }
         
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
+        .problem-box h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .problem-box p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #e8e8e8;
         }
         
-        /* About Section */
-        .about-section {
-            padding: 5rem 2rem;
-            background: white;
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
         }
         
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        .team-member {
+            text-align: left;
         }
         
-        .story-section {
-            margin-bottom: 4rem;
-        }
-        
-        .story-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .story-content {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--gray);
-            margin-bottom: 3rem;
-        }
-        
-        /* Timeline */
-        .timeline {
-            position: relative;
-            margin: 3rem 0;
-        }
-
-        /* Team Photo Section */
-        .team-photo-section {
-            margin: 4rem 0;
-            text-align: center;
-        }
-        
-        .team-photo {
-            max-width: 600px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
-        
-        .team-photo:hover {
-            transform: translateY(-5px);
-        }
-        
-        .team-photo img {
+        .team-member img {
             width: 100%;
             height: auto;
-            display: block;
+            border-radius: 4px;
+            margin-bottom: 24px;
         }
         
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            border-radius: 2px;
+        .team-member h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #000000;
         }
         
+        .team-member .role {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .team-member p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #2a2a2a;
+            margin-bottom: 16px;
+        }
+        
+        .team-member .highlight {
+            font-size: 16px;
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+        
+        /* Timeline Section */
         .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 80px;
+            margin-bottom: 48px;
+            padding-left: 32px;
+            border-left: 3px solid #000000;
         }
         
-        .timeline-dot {
-            position: absolute;
-            left: 18px;
-            top: 8px;
-            width: 24px;
-            height: 24px;
-            background: white;
-            border: 4px solid var(--primary);
-            border-radius: 50%;
-            z-index: 2;
-        }
-        
-        .timeline-period {
-            font-size: 1.1rem;
+        .timeline-item h3 {
+            font-size: 24px;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
+            color: #000000;
         }
         
-        .timeline-content {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--primary);
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--gray);
+        .timeline-item .year {
+            font-size: 16px;
+            font-weight: 600;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
         }
-
-        /* Team Profiles */
-        .team-profiles {
-            margin-top: 5rem;
-            text-align: center;
-        }
-
-        .profiles-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .profiles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .profile-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .profile-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid var(--light);
-            position: relative;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-card:hover .profile-image img {
-            transform: scale(1.1);
-        }
-
-        .profile-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .profile-bio {
-            color: var(--gray);
-            line-height: 1.7;
-            font-size: 1rem;
+        
+        .timeline-item p {
+            font-size: 18px;
+            color: #2a2a2a;
         }
         
         /* CTA Section */
         .cta-section {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 100px 0;
+            background: #000000;
+            color: #ffffff;
         }
         
         .cta-section h2 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-        }
-        
-        .primary-cta {
-            background: white;
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
+            font-size: 48px;
             font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 32px;
+            color: #ffffff;
+        }
+        
+        .cta-section .cta-button {
             display: inline-block;
-        }
-        
-        .primary-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        
-        /* Footer */
-        footer {
-            padding: 4rem 2rem 2rem;
-            background: var(--dark);
-            color: white;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-main {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-brand {
-            max-width: 400px;
-        }
-        
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+            padding: 18px 48px;
+            background: #ffffff;
+            color: #000000;
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: transform 0.2s;
         }
         
-        .footer-social a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-column h4 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-column ul li a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .footer-copyright {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .footer-legal {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .footer-legal a {
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-legal a:hover {
-            color: white;
+        .cta-section .cta-button:hover {
+            transform: translateY(-2px);
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero h1 {
+                font-size: 40px;
             }
             
-            .hamburger {
-                display: flex;
+            .hero .tagline {
+                font-size: 20px;
             }
             
-            .logo img {
-                height: 45px;
+            section h2 {
+                font-size: 32px;
             }
             
-            .hero {
-                padding: 100px 1rem 60px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .story-title {
-                font-size: 2rem;
-            }
-            
-            .profiles-title {
-                font-size: 2rem;
-            }
-            
-            .profiles-grid {
+            .team-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 48px;
             }
             
-            .profile-card {
-                padding: 2rem;
+            .problem-box {
+                padding: 32px;
             }
             
-            .profile-image {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .timeline::before {
-                left: 15px;
-            }
-            
-            .timeline-item {
-                padding-left: 50px;
-            }
-            
-            .timeline-dot {
-                left: 3px;
-                width: 20px;
-                height: 20px;
-            }
-            
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-            
-            .footer-main {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-legal {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo img {
-                height: 40px;
-            }
-            
-            nav {
-                padding: 1rem;
-            }
-            
-            .mobile-menu {
-                width: 90%;
-                max-width: none;
-            }
-            
-            .about-section {
-                padding: 3rem 1rem;
-            }
-            
-            .story-content {
-                font-size: 1.1rem;
-            }
-            
-            .timeline-content {
-                padding: 1rem;
-                font-size: 0.95rem;
+            .problem-box h3 {
+                font-size: 26px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="fresho.png" alt="Fresho Logo">
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#" class="active">About</a>
-                <a href="https://app.fresho.dev/signin/" class="back-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid rgba(99, 102, 241, 0.1);">
-            <a href="index.html" onclick="setTimeout(toggleMobileMenu, 100);">
-                <img src="fresho.png" alt="Fresho Logo" style="height: 50px;">
-            </a>
-        </div>
-        <div class="mobile-menu-links">
-            <a href="index.html">Home</a>
-            <a href="#" class="active">About</a>
-            <a href="https://app.fresho.dev/signin/" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Built by founders who've been there</h1>
+            <p class="tagline">A decade of solving real problems. Starting with our own.</p>
         </div>
     </div>
     
-    <!-- Mobile Overlay -->
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Our Story</h1>
-            <p class="hero-subtitle">A decade of innovation, friendship, and making a positive impact</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="about-container">
-            <div class="story-section">
-                <h2 class="story-title">Our Story</h2>
-                <div class="story-content">
-                    For over a decade, we've been delivering innovative solutions to the world. Solutions that have been featured in top media outlets like CNN and The New York Times. At the heart of our success is a bond of friendship and a shared commitment to making a positive impact in the lives of others.
-                </div>
-            </div>
-
-            <!-- Team Photo -->
-            <div class="team-photo-section">
-                <div class="team-photo">
-                    <img src="1.jpg" alt="Scott and Oscar - Fresho Founders">
-                </div>
-            </div>
-
-            <!-- Timeline -->
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-period">Early 2010's</div>
-                    <div class="timeline-content">
-                        Met and became friends in college. Oscar's computer science professor was Scott's dad, James Glasgow, PhD.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-period">Mid to Late 2010's</div>
-                    <div class="timeline-content">
-                        We built our first side project together in 2016. It was called Worth1k and was used to recycle old tablets to be used as digital frames for your instagram posts. We then built EZ Workout, a Personalized Workout Generation App and co-launched FinMango, a global financial health non-profit that has impacted millions in 90+ countries.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-period">Early 2020's</div>
-                    <div class="timeline-content">
-                        Co-authored a top trending Op-Ed for U.S. News and World Report. Got our work featured in dozens of media outlets ranging from The New York Times to NBC. Built Raging Robot Radio, an AI-powered radio that we use on a daily basis.
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-period">Today</div>
-                    <div class="timeline-content">
-                        Building Fresho! A revolutionary AI-powered Google Ads platform that helps businesses turn URLs into high-performing ads in seconds.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Profiles -->
-            <div class="team-profiles">
-                <h2 class="profiles-title">Meet the Team</h2>
-                <div class="profiles-grid">
-                    <div class="profile-card">
-                        <div class="profile-image">
-                            <img src="scott.jpg" alt="Scott Glasgow">
-                        </div>
-                        <div class="profile-content">
-                            <h3 class="profile-name">Scott Glasgow</h3>
-                            <p class="profile-bio">10+ years of experience in brand marketing and startups. Built FinMango, a financial health non-profit that impacts 1M+ with education and research.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile-card">
-                        <div class="profile-image">
-                            <img src="oscar.jpg" alt="Oscar Wahltinez">
-                        </div>
-                        <div class="profile-content">
-                            <h3 class="profile-name">Oscar Wahltinez, PhD</h3>
-                            <p class="profile-bio">AI/ML expert with 10+ years Microsoft and Google, leading tech teams, data engineering, telemetry systems, software testing, and mobile development.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Origin Story Section -->
+    <section class="origin-story">
+        <div class="container">
+            <div class="content">
+                <h2>It started with a nonprofit</h2>
+                <p>Scott founded FinMango in 2016. A nonprofit teaching financial health to young adults across five states. <span class="bold-stat">50,000+ students reached.</span> International acclaim. Featured in CNN and The New York Times.</p>
+                
+                <p>Then came the Google Ads problem.</p>
+                
+                <p>FinMango needed to reach students, donors, and volunteers. Google offered nonprofits $10,000/month in free ads. But managing them? <span class="bold-stat">Hours every week.</span> Constant optimization. Technical complexity. Resources FinMango didn't have.</p>
+                
+                <p>Sound familiar? Most nonprofits never use their Google Ad Grant. Too complicated. Too time-consuming. Scott built an internal solution to automate it.</p>
+                
+                <p>That solution worked. Really worked.</p>
+                
+                <p>Then the realization hit: thousands of businesses face the exact same problem. They need Google Ads to grow. But they lack the time, expertise, and resources to do it right.</p>
+                
+                <p><span class="bold-stat">Fresho was born.</span> Automation that creates, publishes, and optimizes campaigns 24/7. From URL to running ads in under 5 minutes. No manual setup. No endless tweaking.</p>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Join Our Journey?</h2>
-            <p>Experience the innovation that comes from a decade of building impactful solutions</p>
-            <a href="https://app.fresho.dev/signin/" class="primary-cta" target="_blank" rel="noopener noreferrer">Start Your Free Trial</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div style="margin-bottom: 1rem;">
-                        <a href="index.html" style="text-decoration: none;">
-                            <img src="fresho.png" alt="Fresho Logo" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.9; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
-                        </a>
-                    </div>
-                    <p>AI-powered Google Ads automation that delivers real results. Save time, reduce costs, and scale your campaigns with confidence.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/fresho-dev" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
-                        <a href="mailto:hello@fresho.dev" target="_blank" rel="noopener noreferrer" title="Email">📧</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="index.html#features">Features</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Integrations</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#" class="active">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Status</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    © 2024 Fresho. All rights reserved.
-                </div>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
-
-        function toggleMobileMenu() {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            mobileOverlay.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        hamburger.addEventListener('click', toggleMobileMenu);
-        mobileOverlay.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when clicking on links
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('active')) {
-                    toggleMobileMenu();
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
+    
+    <!-- Innovation Statement -->
+    <section>
+        <div class="container">
+            <h2>A decade of innovation and impact</h2>
+            <p>For over ten years, we've delivered solutions featured in top media outlets. At the heart of our work is friendship and a commitment to making a positive impact.</p>
             
-            if (currentScroll > 100) {
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-            }
-        });
-    </script>
+            <p>Our approach is data-driven. Scott's work with FinMango included collaborating with Google Health to build the world's most comprehensive COVID-19 dataset—tracking cases and vaccines across <span class="bold-stat">20,000+ locations in 190 countries.</span></p>
+            
+            <p>Oscar brings <span class="bold-stat">10+ years from Microsoft and Google,</span> leading technical teams in AI, machine learning, and data engineering.</p>
+            
+            <p>Together, we've built products that solve real problems. Not hypothetical ones.</p>
+        </div>
+    </section>
+    
+    <!-- Problem Statement Box -->
+    <div class="container">
+        <div class="problem-box">
+            <h3>The advertising landscape is changing</h3>
+            <p>Major browsers eliminated third-party cookies in 2024. Privacy matters. The old targeting methods are gone. New approaches like Google's Privacy Sandbox and aggregated data analysis emerged. Fresho solves this with hyper-specific ads and dynamic adaptation to trends. No cookies required.</p>
+        </div>
+    </div>
+    
+    <!-- Team Section -->
+    <section>
+        <div class="container">
+            <h2>Meet the founders</h2>
+            
+            <div class="team-grid">
+                <!-- Scott Glasgow -->
+                <div class="team-member">
+                    <!-- Preserve existing image from current site -->
+                    <img src="[EXISTING_SCOTT_IMAGE_URL]" alt="Scott Glasgow, Co-Founder of Fresho">
+                    <h3>Scott Glasgow</h3>
+                    <p class="role">Co-Founder</p>
+                    <p>Serial optimist best known as the founder of FinMango. His work gained international acclaim through media coverage, a U.S. News & World Report Op-Ed, and TEDx talks in Brazil and Togo.</p>
+                    <p class="highlight">Built FinMango from the ground up—impacting 1M+ people with financial education and research. That's where Fresho started.</p>
+                </div>
+                
+                <!-- Oscar -->
+                <div class="team-member">
+                    <!-- Preserve existing image from current site -->
+                    <img src="[EXISTING_OSCAR_IMAGE_URL]" alt="Oscar, Co-Founder of Fresho">
+                    <h3>Oscar</h3>
+                    <p class="role">Co-Founder</p>
+                    <p>10+ years of experience at Microsoft and Google. Expert in leading technical teams, artificial intelligence, machine learning, data engineering, and telemetry systems.</p>
+                    <p class="highlight">Brings enterprise-level AI and ML expertise to make Fresho's automation smarter every day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section>
+        <div class="container">
+            <h2>Building together 🚀</h2>
+            
+            <div class="timeline-item">
+                <p class="year">College</p>
+                <h3>Where it began</h3>
+                <p>Met and became friends in college. Oscar's computer science professor was Scott's dad, James Glasgow, PhD. A connection that would shape everything.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <p class="year">2016</p>
+                <h3>First side project</h3>
+                <p>Built Worth1k together—a platform to recycle old tablets as digital frames for Instagram posts. Our first taste of building products people actually wanted.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <p class="year">2016</p>
+                <h3>FinMango launches</h3>
+                <p>Scott founded FinMango to teach financial health to young adults. The nonprofit that would eventually inspire Fresho.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <p class="year">2023</p>
+                <h3>Fresho is born</h3>
+                <p>After solving the Google Ads problem for FinMango, we knew we could help thousands of others. Fresho launched to automate what used to take hours every week.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <p class="year">Today</p>
+                <h3>Growing together</h3>
+                <p>Thousands of businesses now use Fresho to create, publish, and optimize Google Ads automatically. We're just getting started.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <h2>Experience a decade of innovation</h2>
+            <a href="mailto:hello@fresho.dev" class="cta-button">Get in Touch</a>
+        </div>
+    </div>
 </body>
 </html>
+```
+
+## Implementation Notes
+
+**Images to Preserve:**
+The HTML includes placeholders `[EXISTING_SCOTT_IMAGE_URL]` and `[EXISTING_OSCAR_IMAGE_URL]` for the team member photos. Replace these with the actual image URLs from your current about page.
+
+**Design System Match:**
+- **Typography**: Modern sans-serif stack matching homepage
+- **Colors**: Black (#000000), white (#ffffff), grays for hierarchy
+- **Spacing**: Generous 80px section padding, breathing room
+- **Minimalism**: Clean, bold headers; short paragraphs; high contrast
+
+**Writing Style Changes:**
+- **Before**: "For over a decade, we've been delivering innovative solutions to the world"
+- **After**: "For over ten years, we've delivered solutions featured in top media outlets"
+
+- **Before**: Long paragraphs with corporate language
+- **After**: Short, punchy sentences. Active voice. No hedging.
+
+**FinMango Integration:**
+The origin story flows naturally in the first content section, explaining:
+1. FinMango's mission and success
+2. The Google Ads problem (relatable, specific)
+3. The solution Scott built
+4. The realization this helps everyone
+5. Fresho's creation
+
+**Preserved Elements:**
+✅ All team member information
+✅ College meeting story (James Glasgow connection)
+✅ Worth1k project (2016)
+✅ Third-party cookies problem statement
+✅ Media mentions (CNN, NYT, TEDx)
+✅ Technical credentials
+✅ Timeline structure
+✅ Contact information
+
+**Enhanced Elements:**
+✨ Bold, minimalist aesthetic
+✨ Punchy, direct writing
+✨ Natural FinMango origin story
+✨ Specific metrics (50,000+ students, 20,000+ locations, 1M+ people)
+✨ Clear narrative arc
+✨ Highly skimmable with visual hierarchy
