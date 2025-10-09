@@ -3,22 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresho - AI-Powered Google Ads That Actually Work</title>
+    <title>Fresho - Google Ads, Automated</title>
     
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.jpg">
-    <link rel="apple-touch-icon" href="favicon.jpg">
-    
-    <meta property="og:title" content="Fresho - AI Marketing Assistant for Google Ads">
-    <meta property="og:description" content="The only platform that creates, publishes & optimizes Google Ads automatically. Turn URLs into high-performing campaigns in seconds with 24/7 AI management.">
-    <meta property="og:image" content="https://fresho.dev/social-preview.jpg">
-    <meta property="og:url" content="https://fresho.dev">
-    <meta property="og:type" content="website">
-    
-    <meta name="description" content="AI-powered Google Ads automation that creates, publishes, and optimizes campaigns 24/7. Save 8 hours weekly while improving performance with Fresho.">
+    <meta property="og:title" content="Fresho - Google Ads, Automated">
+    <meta property="og:description" content="Stop managing ads. Start growing revenue.">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
         
         * {
             margin: 0;
@@ -27,870 +19,635 @@
         }
         
         :root {
-            --black: #0a0a0a;
+            --black: #000000;
             --white: #ffffff;
-            --gray-50: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-300: #d4d4d4;
-            --gray-400: #a3a3a3;
-            --gray-500: #737373;
-            --gray-600: #525252;
-            --gray-700: #404040;
-            --gray-800: #262626;
-            --gray-900: #171717;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --accent-dark: #4f46e5;
+            --gray: #888888;
+            --light-gray: #f7f7f7;
+            --max-width: 1200px;
         }
         
         html {
             scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: var(--gray-900);
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            font-size: 18px;
             overflow-x: hidden;
         }
         
-        /* Navigation */
+        /* Navigation - Ultra Simple */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 2rem 0;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            background: var(--white);
             z-index: 1000;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 1px solid transparent;
+            padding: 2rem 0;
+            transition: all 0.3s ease;
         }
         
         nav.scrolled {
-            padding: 1.25rem 0;
-            background: rgba(255, 255, 255, 0.8);
-            border-bottom: 1px solid var(--gray-200);
+            box-shadow: 0 1px 0 0 var(--black);
         }
         
         .nav-container {
-            max-width: 1400px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 4rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
+        .logo {
+            text-decoration: none;
+            display: inline-block;
+            line-height: 0;
+        }
+        
         .logo img {
-            height: 38px;
-            transition: opacity 0.3s ease;
+            height: 36px;
+            transition: opacity 0.2s ease;
         }
         
         .logo:hover img {
             opacity: 0.7;
         }
         
-        .nav-links {
+        .nav-right {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             align-items: center;
         }
         
-        .nav-links a {
-            color: var(--gray-600);
+        .nav-right a {
+            color: var(--black);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9375rem;
-            letter-spacing: -0.01em;
-            transition: color 0.3s ease;
+            font-size: 1rem;
+            transition: opacity 0.2s ease;
         }
         
-        .nav-links a:hover {
-            color: var(--black);
+        .nav-right a:hover {
+            opacity: 0.5;
         }
         
-        .btn-nav {
-            background: var(--black);
-            color: var(--white) !important;
-            padding: 0.75rem 1.75rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .btn-nav:hover {
-            background: var(--gray-800);
-            transform: translateY(-1px);
-        }
-        
-        .btn-nav-secondary {
+        .btn-secondary {
             background: transparent;
-            color: var(--gray-600) !important;
+            color: var(--black);
             padding: 0.75rem 1.75rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--gray-300);
-        }
-        
-        .btn-nav-secondary:hover {
-            background: var(--gray-50);
-            color: var(--black) !important;
-            border-color: var(--gray-400);
-        }
-        
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1002;
-            position: relative;
-        }
-        
-        .mobile-signin {
-            display: none;
-        }
-        
-        .mobile-nav-actions {
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background: var(--black);
-            border-radius: 2px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-        
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 400px;
-            height: 100vh;
-            background: var(--white);
-            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1001;
-            padding: 6rem 2rem 2rem;
-            overflow-y: auto;
-            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .mobile-menu.active {
-            right: 0;
-        }
-        
-        .mobile-menu-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-        
-        .mobile-menu-links a {
-            color: var(--gray-700);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.125rem;
-            padding: 1.25rem 0;
-            transition: all 0.3s;
-            letter-spacing: -0.02em;
-            border-bottom: 1px solid var(--gray-200);
+            border: 2px solid var(--black);
+            transition: all 0.2s ease;
+            display: inline-block;
         }
         
-        .mobile-menu-links a:hover {
-            color: var(--black);
-            padding-left: 0.5rem;
-        }
-        
-        .mobile-menu-links .btn-nav {
-            margin-top: 2rem;
-            text-align: center;
-            display: block;
-            border-bottom: none;
-            padding: 1rem 2rem;
-            border-radius: 12px;
+        .btn-secondary:hover {
             background: var(--black);
             color: var(--white) !important;
+            opacity: 1 !important;
         }
         
-        .mobile-menu-links .btn-nav:hover {
-            padding-left: 2rem;
-            background: var(--gray-800);
+        .btn-start {
+            background: var(--black);
+            color: var(--white) !important;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease;
+            display: inline-block;
         }
         
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 999;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+        .btn-start:hover {
+            transform: scale(0.95);
+            opacity: 1 !important;
         }
         
-        .mobile-overlay.active {
-            display: block;
-        }
-        
-        /* Hero */
+        /* Hero - Massive Statement */
         .hero {
-            padding: 12rem 4rem 6rem;
-            background: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
             position: relative;
         }
         
-        .hero-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
+        .hero-content {
+            max-width: var(--max-width);
+            width: 100%;
         }
         
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--gray-100);
-            border-radius: 100px;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            color: var(--gray-700);
-            margin-bottom: 2rem;
-            letter-spacing: -0.01em;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            margin-bottom: 3rem;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .badge:hover {
-            background: var(--gray-200);
-        }
-        
-        h1 {
-            font-size: clamp(2.5rem, 4.5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 2rem;
-            color: var(--black);
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 .strike {
+            text-decoration: line-through;
+            opacity: 0.3;
         }
         
         .hero-subtitle {
-            font-size: 1.0625rem;
+            font-size: 1.5rem;
             font-weight: 400;
-            color: var(--gray-600);
-            margin-bottom: 3rem;
-            line-height: 1.65;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            line-height: 1.4;
         }
         
         .hero-cta {
             display: flex;
-            gap: 1.25rem;
-            justify-content: center;
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
         
         .btn-hero {
             background: var(--black);
-            color: var(--white) !important;
-            padding: 1.25rem 2.5rem;
-            border-radius: 12px;
+            color: var(--white);
+            padding: 1.25rem 3rem;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: -0.01em;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: transform 0.2s ease;
             display: inline-block;
         }
         
         .btn-hero:hover {
-            background: var(--gray-800);
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(0.95);
         }
         
-        .hero-visual {
-            position: relative;
-            margin-top: 5rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
-        }
-        
-        .hero-visual img {
-            width: 100%;
-            max-width: 1200px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
-            border: 1px solid var(--gray-200);
-            transition: transform 0.4s ease;
-        }
-        
-        .hero-visual:hover img {
-            transform: translateY(-8px);
-            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Stats */
-        .stats {
-            padding: 6rem 4rem;
-            background: var(--gray-50);
-        }
-        
-        .stats-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 6rem;
-        }
-        
-        .stat-card {
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .stat-card.visible {
-            opacity: 1;
-        }
-        
-        .stat-number {
-            font-size: 3.25rem;
-            font-weight: 700;
-            color: var(--black);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.03em;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            color: var(--gray-600);
-            font-weight: 500;
+        .hero-note {
+            color: var(--gray);
             font-size: 1rem;
-            letter-spacing: -0.01em;
+            margin-left: 1rem;
         }
         
-        /* Features */
-        .features {
-            padding: 8rem 4rem;
-            background: var(--white);
+        /* Proof Section - Single Line */
+        .proof {
+            padding: 6rem 2rem;
+            border-top: 2px solid var(--black);
+            border-bottom: 2px solid var(--black);
         }
         
-        .section-header {
-            max-width: 700px;
-            margin: 0 auto 6rem;
+        .proof-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
             text-align: center;
         }
         
-        .section-title {
-            font-size: clamp(2.25rem, 3.5vw, 3.25rem);
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            color: var(--black);
+        .proof-stat {
+            font-size: 3rem;
+            font-weight: 900;
             letter-spacing: -0.02em;
-            line-height: 1.15;
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
         
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            font-weight: 400;
-            line-height: 1.65;
+        .proof-label {
+            font-size: 1rem;
+            color: var(--gray);
         }
         
-        .features-grid {
-            max-width: 1400px;
+        /* How It Works - Ultra Simple */
+        .how {
+            padding: 8rem 2rem;
+        }
+        
+        .how-container {
+            max-width: var(--max-width);
             margin: 0 auto;
+        }
+        
+        .how h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 5rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .how-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
         }
         
-        .feature-card {
-            padding: 3rem;
-            background: var(--white);
-            border: 1px solid var(--gray-200);
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
+        .how-step {
+            position: relative;
         }
         
-        .feature-card.visible {
-            opacity: 1;
+        .step-number {
+            font-size: 8rem;
+            font-weight: 900;
+            opacity: 0.05;
+            position: absolute;
+            top: -3rem;
+            left: -1rem;
+            z-index: -1;
         }
         
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-            border-color: var(--gray-300);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            display: block;
-        }
-        
-        .feature-title {
-            font-size: 1.5rem;
+        .step-title {
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--black);
             letter-spacing: -0.02em;
         }
         
-        .feature-description {
-            color: var(--gray-600);
-            line-height: 1.7;
-            font-size: 1rem;
+        .step-description {
+            color: var(--gray);
+            line-height: 1.6;
         }
         
-        /* Pricing */
+        /* Compare Section - Bold Statement */
+        .compare {
+            padding: 8rem 2rem;
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        .compare-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .compare h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 4rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .compare-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.5;
+        }
+        
+        .compare-col.fresho h3 {
+            opacity: 1;
+        }
+        
+        .compare-list {
+            list-style: none;
+        }
+        
+        .compare-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.1rem;
+        }
+        
+        .compare-col.others li {
+            opacity: 0.5;
+        }
+        
+        /* Pricing - Three Options */
         .pricing {
-            padding: 8rem 4rem;
-            background: var(--gray-50);
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+        
+        .pricing-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .pricing h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 4rem;
+            letter-spacing: -0.03em;
         }
         
         .pricing-grid {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
         .pricing-card {
-            background: var(--white);
-            border: 1px solid var(--gray-200);
-            border-radius: 24px;
-            padding: 3rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 3rem 2rem;
+            border: 2px solid var(--black);
             position: relative;
-            opacity: 0;
-        }
-        
-        .pricing-card.visible {
-            opacity: 1;
         }
         
         .pricing-card.featured {
-            border: 2px solid var(--black);
+            background: var(--black);
+            color: var(--white);
             transform: scale(1.05);
         }
         
         .pricing-card.featured::before {
-            content: 'MOST POPULAR';
+            content: 'POPULAR';
             position: absolute;
-            top: -16px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--black);
-            color: var(--white);
-            padding: 0.5rem 1.25rem;
-            border-radius: 100px;
-            font-size: 0.6875rem;
-            font-weight: 700;
+            background: var(--white);
+            color: var(--black);
+            padding: 0.25rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 900;
             letter-spacing: 0.1em;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-        }
-        
-        .pricing-card.featured:hover {
-            transform: translateY(-8px) scale(1.05);
         }
         
         .plan-name {
             font-size: 0.875rem;
-            font-weight: 700;
-            color: var(--gray-600);
+            font-weight: 900;
             letter-spacing: 0.1em;
-            text-transform: uppercase;
             margin-bottom: 1.5rem;
+            opacity: 0.6;
         }
         
-        .plan-price {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--black);
-            margin-bottom: 0.5rem;
+        .pricing-card.featured .plan-name {
+            opacity: 0.8;
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 900;
             letter-spacing: -0.03em;
             line-height: 1;
+            margin-bottom: 0.5rem;
         }
         
-        .plan-price span {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--gray-500);
-        }
-        
-        .plan-description {
-            color: var(--gray-600);
-            margin-bottom: 2.5rem;
+        .price-period {
             font-size: 1rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--gray-200);
+            opacity: 0.6;
+            margin-bottom: 2rem;
         }
         
-        .plan-features {
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 2rem;
+            min-height: 150px;
+        }
+        
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
             list-style: none;
-            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
         }
         
-        .plan-features li {
-            padding: 0.875rem 0;
-            color: var(--gray-700);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            font-size: 0.9375rem;
+        .pricing-card.featured .pricing-features li {
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         
-        .plan-features li::before {
-            content: '✓';
-            color: var(--black);
-            font-weight: 700;
-            flex-shrink: 0;
-            font-size: 1.125rem;
-        }
-        
-        .plan-button {
-            width: 100%;
-            padding: 1.125rem;
+        .pricing-cta {
+            padding: 1rem 2rem;
             background: var(--black);
             color: var(--white);
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            font-weight: 700;
             display: inline-block;
-            text-align: center;
+            transition: transform 0.2s ease;
+            border: none;
+            cursor: pointer;
         }
         
-        .plan-button:hover {
-            background: var(--gray-800);
-            transform: translateY(-2px);
-        }
-        
-        /* FAQ */
-        .faq {
-            padding: 8rem 4rem;
+        .pricing-card.featured .pricing-cta {
             background: var(--white);
+            color: var(--black);
+        }
+        
+        .pricing-cta:hover {
+            transform: scale(0.95);
+        }
+        
+        /* FAQ - Minimal */
+        .faq {
+            padding: 8rem 2rem;
+            background: var(--light-gray);
         }
         
         .faq-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
-        .faq-item {
-            border-bottom: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-            opacity: 0;
+        .faq h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 4rem;
+            letter-spacing: -0.03em;
         }
         
-        .faq-item.visible {
-            opacity: 1;
+        .faq-item {
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--black);
+            cursor: pointer;
         }
         
         .faq-question {
-            padding: 2rem 0;
-            font-weight: 600;
             font-size: 1.25rem;
-            cursor: pointer;
+            font-weight: 700;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: var(--black);
-            user-select: none;
-            letter-spacing: -0.01em;
         }
         
-        .faq-question::after {
-            content: '+';
+        .faq-toggle {
             font-size: 2rem;
-            color: var(--gray-400);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 300;
-            line-height: 1;
+            transition: transform 0.3s ease;
         }
         
-        .faq-item.active .faq-question::after {
+        .faq-item.active .faq-toggle {
             transform: rotate(45deg);
-            color: var(--black);
         }
         
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .faq-answer-content {
-            padding: 0 0 2rem;
-            color: var(--gray-600);
-            line-height: 1.8;
-            font-size: 1.0625rem;
+            transition: max-height 0.3s ease;
         }
         
         .faq-item.active .faq-answer {
             max-height: 500px;
         }
         
-        /* CTA */
+        .faq-answer-content {
+            padding-top: 1.5rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* Final CTA */
         .final-cta {
-            padding: 8rem 4rem;
-            background: var(--black);
+            padding: 10rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        
-        .final-cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
         
         .final-cta h2 {
-            font-size: clamp(2.25rem, 3.5vw, 3.5rem);
-            color: var(--white);
-            margin-bottom: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.15;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 3rem;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
         }
         
-        .final-cta p {
-            font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 2.5rem;
-            line-height: 1.65;
-        }
-        
-        .btn-cta {
-            background: var(--white);
-            color: var(--black) !important;
-            padding: 1.25rem 2.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-        }
-        
-        .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Footer */
+        /* Footer - Minimal */
         footer {
-            padding: 6rem 4rem 3rem;
-            background: var(--white);
-            border-top: 1px solid var(--gray-200);
+            padding: 4rem 2rem 2rem;
+            border-top: 2px solid var(--black);
         }
         
-        .footer-content {
-            max-width: 1400px;
+        .footer-container {
+            max-width: var(--max-width);
             margin: 0 auto;
-        }
-        
-        .footer-main {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 5rem;
-            margin-bottom: 4rem;
-        }
-        
-        .footer-brand p {
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin: 2rem 0;
-            font-size: 1rem;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .footer-social a {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--gray-100);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1.25rem;
-        }
-        
-        .footer-social a:hover {
-            background: var(--black);
-            transform: translateY(-2px);
-        }
-        
-        .footer-column h4 {
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--black);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-column ul li a {
-            color: var(--gray-600);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.9375rem;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--black);
-        }
-        
-        .footer-bottom {
-            padding-top: 3rem;
-            border-top: 1px solid var(--gray-200);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
         
-        .footer-copyright {
-            color: var(--gray-500);
-            font-size: 0.875rem;
+        .footer-left {
+            font-weight: 900;
+            font-size: 1.5rem;
         }
         
-        .footer-legal {
+        .footer-right {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
         }
         
-        .footer-legal a {
-            color: var(--gray-500);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.875rem;
-        }
-        
-        .footer-legal a:hover {
+        .footer-right a {
             color: var(--black);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
         }
         
-        /* Scroll animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer-right a:hover {
+            opacity: 0.5;
         }
         
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-grid {
-                gap: 5rem;
+        .mobile-signin {
+            display: none;
+            background: transparent;
+            color: var(--black);
+            padding: 0.5rem 1.25rem;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--black);
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-signin:hover {
+            background: var(--black);
+            color: var(--white) !important;
+            opacity: 1 !important;
+        }
+        
+        /* Mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--black);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--white);
+            z-index: 999;
+            padding: 6rem 2rem;
+            transition: right 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1.5rem 0;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 2px solid var(--black);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-right {
+                display: none;
             }
             
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 4rem;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .mobile-signin {
+                display: inline-block;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .proof-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .pricing-grid {
@@ -900,300 +657,243 @@
             .pricing-card.featured {
                 transform: scale(1);
             }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
             
-            .hamburger {
-                display: flex;
-            }
-            
-            .mobile-signin {
-                display: block;
-            }
-            
-            .mobile-nav-actions {
-                display: flex;
-            }
-            
-            .hamburger {
-                padding: 8px;
-            }
-            
-            nav {
-                border-bottom: 1px solid var(--gray-200);
-            }
-            
-            nav.scrolled {
-                border-bottom: 1px solid var(--gray-200);
-            }
-            
-            .nav-container,
-            .hero,
-            .stats,
-            .features,
-            .pricing,
-            .faq,
-            .final-cta,
-            footer {
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
-            
-            .hero {
-                padding-top: 10rem;
-                padding-bottom: 6rem;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-main {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .footer-bottom {
+            .footer-container {
                 flex-direction: column;
-                gap: 2rem;
-                text-align: center;
+                align-items: flex-start;
             }
             
-            .footer-legal {
-                flex-direction: column;
-                gap: 1rem;
+            .footer-right {
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
-<body id="top">
+<body>
     <nav id="nav">
         <div class="nav-container">
-            <a href="#top" class="logo">
-                <img src="fresho.png" alt="Fresho">
+            <a href="#" class="logo">
+                <img src="fresho.png" alt="Fresho" style="height: 36px;">
             </a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-                <a href="https://app.fresho.dev/signin/" class="btn-nav-secondary" target="_blank" rel="noopener noreferrer">Sign In</a>
-                <a href="https://app.fresho.dev/signin/" class="btn-nav" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
-            </div>
-            <div class="mobile-nav-actions">
-                <a href="https://app.fresho.dev/signin/" class="btn-nav-secondary mobile-signin" target="_blank" rel="noopener noreferrer">Sign In</a>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <div class="nav-right">
+                    <a href="#how">How it works</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="https://app.fresho.dev/signin/" class="btn-secondary">Sign In</a>
+                    <a href="https://app.fresho.dev/signin/" class="btn-start">Start Free</a>
                 </div>
+                <a href="https://app.fresho.dev/signin/" class="btn-secondary mobile-signin">Sign In</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-links">
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
-            <a href="https://app.fresho.dev/signin/" class="btn-nav" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
-        </div>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://app.fresho.dev/signin/">Start Free Trial</a>
     </div>
-    
-    <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <section class="hero">
-        <div class="hero-container">
-            <a href="https://www.google.com/partners/agency?id=4582016548" target="_blank" rel="noopener noreferrer" class="badge">
-                🎖️ Google Ads Certified Partner
-            </a>
-            <h1>AI Marketing Assistant that <span class="gradient-text">Creates, Publishes & Optimizes</span></h1>
-            <p class="hero-subtitle">The only platform that goes beyond ad creation - Fresho publishes your campaigns live and continuously manages them 24/7, getting smarter and more effective over time.</p>
+        <div class="hero-content">
+            <h1>
+                <span class="strike">Manage</span><br>
+                Automate<br>
+                Your Google Ads
+            </h1>
+            <p class="hero-subtitle">
+                Stop wasting hours on campaigns. 
+                Let AI handle everything while you focus on growth.
+            </p>
+            <div style="margin-bottom: 2rem;">
+                <a href="https://www.google.com/partners/agency?id=4582016548" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   style="color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: opacity 0.2s ease;">
+                   ✓ Google Ads Certified Partner
+                </a>
+            </div>
             <div class="hero-cta">
-                <a href="https://app.fresho.dev/signin/" class="btn-hero" target="_blank" rel="noopener noreferrer">Start Free 14-Day Trial</a>
-            </div>
-            <div class="hero-visual">
-                <img src="screenshot.png" alt="Fresho Dashboard" onerror="this.style.display='none'">
+                <a href="https://app.fresho.dev/signin/" class="btn-hero">Start Free Trial</a>
+                <span class="hero-note">No credit card. No complexity.</span>
             </div>
         </div>
     </section>
 
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-number">$250K+</div>
-                <div class="stat-label">Quarterly Ad Spend Managed</div>
+    <section class="proof">
+        <div class="proof-container">
+            <div>
+                <div class="proof-stat">$1M+</div>
+                <div class="proof-label">Ad spend automated</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">70%+</div>
-                <div class="stat-label">Average Optimization Score</div>
+            <div>
+                <div class="proof-stat">8hrs</div>
+                <div class="proof-label">Saved weekly</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">8 Hours</div>
-                <div class="stat-label">Saved Weekly Per Account</div>
+            <div>
+                <div class="proof-stat">47%</div>
+                <div class="proof-label">Lower CPC average</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Continuous Optimization</div>
+            <div>
+                <div class="proof-stat">24/7</div>
+                <div class="proof-label">Always optimizing</div>
             </div>
         </div>
     </section>
 
-    <section class="features" id="features">
-        <div class="section-header">
-            <h2 class="section-title">Complete Campaign Automation</h2>
-            <p class="section-subtitle">Unlike other tools that stop at content generation, Fresho handles the entire lifecycle: create, publish, manage, and continuously optimize your campaigns</p>
+    <section class="how" id="how">
+        <div class="how-container">
+            <h2>Three steps.<br>Then it's automatic.</h2>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Connect</h3>
+                    <p class="step-description">Link your Google Ads account. Takes 30 seconds. No technical setup.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Input</h3>
+                    <p class="step-description">Add your website URL. Fresho scans and understands your business instantly.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Automate</h3>
+                    <p class="step-description">Campaigns create, publish, and optimize themselves. Forever.</p>
+                </div>
+            </div>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">⚡</span>
-                <h3 class="feature-title">Create, Publish & Launch Instantly</h3>
-                <p class="feature-description">Unlike tools that just create ad copy, Fresho publishes your campaigns live to Google Ads automatically. From URL to running campaign in under 5 minutes.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🎯</span>
-                <h3 class="feature-title">Smart Keyword Discovery</h3>
-                <p class="feature-description">Our AI continuously discovers and tests new keywords, ensuring you never miss opportunities to reach your ideal customers.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">📊</span>
-                <h3 class="feature-title">Continuous Management & Learning</h3>
-                <p class="feature-description">After publishing, Fresho actively manages your live campaigns 24/7, automatically adjusting bids and scaling winners.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🔄</span>
-                <h3 class="feature-title">Automated A/B Testing</h3>
-                <p class="feature-description">Continuously test headlines, descriptions, and landing pages to find what resonates with your audience.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🎨</span>
-                <h3 class="feature-title">Brand Voice Matching</h3>
-                <p class="feature-description">Fresho learns your brand's unique voice and tone, ensuring every ad feels authentically yours.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">📈</span>
-                <h3 class="feature-title">Strategic Insights</h3>
-                <p class="feature-description">Get clear, actionable insights that empower your marketing team to make strategic decisions and focus on growth.</p>
+    </section>
+
+    <section class="compare">
+        <div class="compare-container">
+            <h2>The old way is broken.</h2>
+            <div class="compare-grid">
+                <div class="compare-col others">
+                    <h3>Without Fresho</h3>
+                    <ul class="compare-list">
+                        <li>8+ hours weekly on campaigns</li>
+                        <li>Guessing which keywords work</li>
+                        <li>Manually A/B testing everything</li>
+                        <li>Missing opportunities while you sleep</li>
+                        <li>Paying agencies $3-10k/month</li>
+                    </ul>
+                </div>
+                <div class="compare-col fresho">
+                    <h3>With Fresho</h3>
+                    <ul class="compare-list">
+                        <li>5 minutes to setup, then automatic</li>
+                        <li>AI discovers winning keywords</li>
+                        <li>Continuous testing, no effort</li>
+                        <li>24/7 optimization, never stops</li>
+                        <li>One simple monthly price</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="pricing" id="pricing">
-        <div class="section-header">
-            <h2 class="section-title">Simple, Transparent Pricing</h2>
-            <p class="section-subtitle">Choose the plan that fits your needs. All plans include a 14-day free trial.</p>
+        <div class="pricing-container">
+            <h2>Simple pricing.<br>No surprises.</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">STARTER</div>
+                    <div class="price">$249</div>
+                    <div class="price-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>1 Google Ads account</li>
+                        <li>Unlimited campaigns</li>
+                        <li>24/7 optimization</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="https://app.fresho.dev/signin/" class="pricing-cta">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="plan-name">GROWTH</div>
+                    <div class="price">$749</div>
+                    <div class="price-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>5 Google Ads accounts</li>
+                        <li>Everything in Starter</li>
+                        <li>Priority support</li>
+                        <li>Custom integrations</li>
+                        <li>Advanced analytics</li>
+                    </ul>
+                    <a href="https://app.fresho.dev/signin/" class="pricing-cta">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-name">ENTERPRISE</div>
+                    <div class="price">Custom</div>
+                    <div class="price-period">contact us</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited accounts</li>
+                        <li>Dedicated manager</li>
+                        <li>Custom onboarding</li>
+                        <li>SLA guarantee</li>
+                    </ul>
+                    <a href="mailto:hello@fresho.dev" class="pricing-cta">Contact Sales</a>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; color: var(--gray); font-size: 1rem;">
+                14-day free trial. No credit card required.
+            </p>
         </div>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3 class="plan-name">STARTER</h3>
-                <div class="plan-price">$249<span>/month</span></div>
-                <p class="plan-description">Perfect for small businesses</p>
-                <ul class="plan-features">
-                    <li>1 Google Ads account</li>
-                    <li>Unlimited ad creation</li>
-                    <li>24/7 optimization</li>
-                    <li>Email support</li>
-                    <li>Monthly performance reports</li>
-                </ul>
-                <a href="https://app.fresho.dev/signin/" class="plan-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
-            </div>
-            <div class="pricing-card featured">
-                <h3 class="plan-name">GROWTH</h3>
-                <div class="plan-price">$749<span>/month</span></div>
-                <p class="plan-description">For growing businesses & agencies</p>
-                <ul class="plan-features">
-                    <li>Up to 5 Google Ads accounts</li>
-                    <li>Everything in Starter</li>
-                    <li>Priority support</li>
-                    <li>Weekly performance reports</li>
-                    <li>Custom integrations</li>
-                    <li>Advanced analytics</li>
-                </ul>
-                <a href="https://app.fresho.dev/signin/" class="plan-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
-            </div>
-            <div class="pricing-card">
-                <h3 class="plan-name">ENTERPRISE</h3>
-                <div class="plan-price">Custom</div>
-                <p class="plan-description">For large organizations</p>
-                <ul class="plan-features">
-                    <li>Unlimited accounts</li>
-                    <li>Everything in Growth</li>
-                    <li>Dedicated account manager</li>
-                    <li>Live onboarding & training</li>
-                    <li>Custom reporting</li>
-                    <li>SLA guarantee</li>
-                </ul>
-                <a href="mailto:hello@fresho.dev?subject=Enterprise%20Pricing%20Inquiry" class="plan-button" target="_blank" rel="noopener noreferrer">Contact Sales</a>
-            </div>
-        </div>
-        <p style="text-align: center; margin-top: 4rem; color: var(--gray-600); font-size: 1rem;">
-            Special discount pricing available for nonprofits. <a href="mailto:hello@fresho.dev?subject=Nonprofit%20Discount%20Pricing" style="color: var(--black); text-decoration: underline; font-weight: 600;" target="_blank" rel="noopener noreferrer">Contact us</a>
-        </p>
     </section>
 
     <section class="faq" id="faq">
-        <div class="section-header">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Everything you need to know about Fresho</p>
-        </div>
         <div class="faq-container">
+            <h2>Questions?<br>Answered.</h2>
+            
             <div class="faq-item">
-                <div class="faq-question">How quickly can I get started with Fresho?</div>
+                <div class="faq-question">
+                    How fast does this actually work?
+                    <span class="faq-toggle">+</span>
+                </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        You can be up and running in less than 5 minutes! Simply connect your Google Ads account, add your website URLs, and Fresho will immediately start creating and optimizing your campaigns.
+                        Connect your account, add your URL, and campaigns are live in under 5 minutes. The AI starts optimizing immediately.
                     </div>
                 </div>
             </div>
+
             <div class="faq-item">
-                <div class="faq-question">Will Fresho work with my existing Google Ads campaigns?</div>
+                <div class="faq-question">
+                    What if I already have campaigns running?
+                    <span class="faq-toggle">+</span>
+                </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Absolutely! Fresho can work alongside your existing campaigns or take over management completely. You have full control over which campaigns Fresho manages.
+                        Keep them. Fresho works alongside existing campaigns or can take them over. You choose.
                     </div>
                 </div>
             </div>
+
             <div class="faq-item">
-                <div class="faq-question">How does Fresho ensure my ads match my brand voice?</div>
+                <div class="faq-question">
+                    Do I need to know Google Ads?
+                    <span class="faq-toggle">+</span>
+                </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Fresho's AI analyzes your website content, existing marketing materials, and any guidelines you provide to understand your unique brand voice and maintain consistency across all campaigns.
+                        No. That's the point. Fresho handles all the complexity. You just watch the results.
                     </div>
                 </div>
             </div>
+
             <div class="faq-item">
-                <div class="faq-question">What kind of results can I expect?</div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        While results vary by industry and budget, our users typically see 30-50% improvements in click-through rates, 20-40% reduction in cost per conversion, and save 6-8 hours per week on campaign management.
-                    </div>
+                <div class="faq-question">
+                    What's the catch?
+                    <span class="faq-toggle">+</span>
                 </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Do I need any Google Ads experience?</div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Not at all! Fresho is designed to be used by anyone, regardless of their Google Ads experience. Our platform handles all the technical complexity behind the scenes.
-                    </div>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Can I cancel anytime?</div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Yes! You can cancel your subscription at any time with no penalties or hidden fees. Your campaigns will continue running in Google Ads, and you'll retain full access to your account and data.
+                        There isn't one. We built this because managing Google Ads manually is insane. Try it free for 14 days. Cancel anytime if it's not working.
                     </div>
                 </div>
             </div>
@@ -1201,70 +901,32 @@
     </section>
 
     <section class="final-cta">
-        <div class="final-cta-content">
-            <h2>Ready to Transform Your Google Ads?</h2>
-            <p>Join thousands of businesses saving time and improving results with AI-powered automation</p>
-            <a href="https://app.fresho.dev/signin/" class="btn-cta" target="_blank" rel="noopener noreferrer">Start Your Free 14-Day Trial</a>
-        </div>
+        <h2>Your competitors<br>are automating.<br>Are you?</h2>
+        <a href="https://app.fresho.dev/signin/" class="btn-hero">Start Free Trial</a>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <a href="#top">
-                        <img src="fresho.png" alt="Fresho" style="height: 38px;">
-                    </a>
-                    <p>AI-powered Google Ads automation that delivers real results. Save time, reduce costs, and scale your campaigns with confidence.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/fresho-dev" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
-                        <a href="mailto:hello@fresho.dev" target="_blank" rel="noopener noreferrer" title="Email">📧</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                        <li><a href="#">Integrations</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="mailto:hello@fresho.dev">Help Center</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Status</a></li>
-                    </ul>
-                </div>
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="fresho.png" alt="Fresho" style="height: 32px;">
             </div>
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    © 2025 Fresho. All rights reserved.
-                </div>
-                <div class="footer-legal">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="privacy-policy.html">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
+            <div class="footer-right">
+                <a href="case-studies.html">Case Studies</a>
+                <a href="about.html">About</a>
+                <a href="mailto:hello@fresho.dev">Contact</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="privacy-policy.html">Terms</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navigation scroll effect
+        // Minimal JS for interactions
         const nav = document.getElementById('nav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        // Scroll effect
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
@@ -1272,98 +934,27 @@
                 nav.classList.remove('scrolled');
             }
         });
-
+        
         // Mobile menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
-
-        function toggleMobileMenu() {
-            hamburger.classList.toggle('active');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
             mobileMenu.classList.toggle('active');
-            mobileOverlay.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        hamburger.addEventListener('click', toggleMobileMenu);
-        mobileOverlay.addEventListener('click', toggleMobileMenu);
-
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('active')) {
-                    toggleMobileMenu();
-                }
+        });
+        
+        // FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
             });
         });
-
-        // FAQ accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                
-                faqItems.forEach(faqItem => {
-                    faqItem.classList.remove('active');
-                });
-                
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe stats
-        document.querySelectorAll('.stat-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.1}s`;
-            observer.observe(card);
-        });
-
-        // Observe features
-        document.querySelectorAll('.feature-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.1}s`;
-            observer.observe(card);
-        });
-
-        // Observe pricing cards
-        document.querySelectorAll('.pricing-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.1}s`;
-            observer.observe(card);
-        });
-
-        // Observe FAQ items
-        document.querySelectorAll('.faq-item').forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.05}s`;
-            observer.observe(item);
-        });
-
+        
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
