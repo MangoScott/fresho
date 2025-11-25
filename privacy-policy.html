@@ -4,563 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy & Terms - Fresho</title>
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.jpg">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #22d3ee;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --success: #10b981;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-            background: var(--light);
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
-        .logo img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .back-button {
-            background: transparent;
-            color: var(--primary) !important;
-            padding: 0.6rem 1.2rem;
-            border: 2px solid var(--primary);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .back-button:hover {
-            background: var(--primary);
-            color: white !important;
-            transform: translateY(-2px);
-        }
-        
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            z-index: 1002;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary);
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 3px;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-            transition: right 0.3s ease;
-            z-index: 1001;
-            padding: 30px 30px 30px;
-        }
-        
-        .mobile-menu.active {
-            right: 0;
-        }
-        
-        .mobile-menu-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .mobile-menu-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-links a:hover {
-            color: var(--primary);
-            padding-left: 10px;
-        }
-        
-        /* Overlay */
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0,0,0,0.5);
-            z-index: 998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .mobile-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 120px 2rem 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>') repeat;
-            animation: float 20s linear infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50%); }
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: white;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Content Section */
-        .content-section {
-            padding: 5rem 2rem;
-            background: white;
-        }
-        
-        .content-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .policy-section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--light);
-            border-radius: 15px;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .policy-section h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--dark);
-        }
-        
-        .policy-section h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin: 1.5rem 0 1rem 0;
-            color: var(--primary);
-        }
-        
-        .policy-section p {
-            margin-bottom: 1rem;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-        
-        .policy-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-            color: var(--gray);
-        }
-        
-        .policy-section li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-        
-        .contact-info {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(34, 211, 238, 0.05));
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-        
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        footer {
-            padding: 4rem 2rem 2rem;
-            background: var(--dark);
-            color: white;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-main {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-brand {
-            max-width: 400px;
-        }
-        
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-column h4 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-column ul li a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .footer-copyright {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .footer-legal {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .footer-legal a {
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-legal a:hover {
-            color: white;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .logo img {
-                height: 45px;
-            }
-            
-            .hero {
-                padding: 100px 1rem 60px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .policy-section h2 {
-                font-size: 1.5rem;
-            }
-            
-            .policy-section h3 {
-                font-size: 1.1rem;
-            }
-            
-            .content-section {
-                padding: 3rem 1rem;
-            }
-            
-            .policy-section {
-                padding: 1.5rem;
-            }
-            
-            .footer-main {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-legal {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo img {
-                height: 40px;
-            }
-            
-            nav {
-                padding: 1rem;
-            }
-            
-            .mobile-menu {
-                width: 90%;
-                max-width: none;
-            }
-        }
-    </style>
+    <meta property="og:title" content="Privacy Policy & Terms - Fresho">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    
     <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
+    <nav class="nav">
+        <div class="container nav-wrapper">
             <a href="index.html" class="logo">
-                <img src="fresho.png" alt="Fresho Logo">
+                <img src="fresho.png" alt="Fresho">
             </a>
+            
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="businesses.html">For Businesses</a>
+                <a href="nonprofits.html">For Nonprofits</a>
                 <a href="about.html">About</a>
-                <a href="case-studies.html">Case Studies</a>
-                <a href="https://app.fresho.dev/signin/" class="back-button" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+                <a href="https://app.fresho.dev/signin/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Start Free</a>
             </div>
-            <div class="hamburger" id="hamburger">
+
+            <button class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid rgba(99, 102, 241, 0.1);">
-            <a href="index.html" onclick="setTimeout(toggleMobileMenu, 100);">
-                <img src="fresho.png" alt="Fresho Logo" style="height: 50px;">
-            </a>
-        </div>
-        <div class="mobile-menu-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="case-studies.html">Case Studies</a>
-            <a href="https://app.fresho.dev/signin/" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
-        </div>
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="businesses.html">For Businesses</a>
+        <a href="nonprofits.html">For Nonprofits</a>
+        <a href="about.html">About</a>
+        <a href="mailto:hello@fresho.dev">Contact</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="privacy-policy.html">Terms</a>
     </div>
-    
-    <!-- Mobile Overlay -->
-    <div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Privacy Policy & Terms</h1>
-            <p class="hero-subtitle">Your privacy and rights matter to us. Here's how we protect and respect them.</p>
+    <!-- Hero -->
+    <section class="section text-center">
+        <div class="container">
+            <h1>Privacy Policy<br>& Terms</h1>
+            <p class="text-large" style="margin: 0 auto;">Your privacy and rights matter. Plain and simple.</p>
         </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="content-section">
-        <div class="content-container">
+    <!-- Content -->
+    <section class="section bg-light">
+        <div class="container" style="max-width: 800px;">
             
-            <!-- Privacy Policy -->
-            <div class="policy-section">
-                <h2>Privacy Policy</h2>
+            <div class="card bg-white card-bordered mb-lg">
+                <h2 style="border-bottom: 2px solid var(--black); padding-bottom: 1rem;">Privacy Policy</h2>
                 
-                <h3>1. Introduction</h3>
+                <h3 class="mt-md" style="margin-top: 2rem;">1. Introduction</h3>
                 <p>This Privacy Policy outlines our commitment to protecting the privacy of our users as we provide a platform to launch and automate hyper-personalized ads quickly and efficiently.</p>
                 
                 <h3>2. Information Collection</h3>
@@ -569,7 +68,7 @@
                 <p><strong>Cookies:</strong> We use first-party cookies for functionality and analytics, but not third-party cookies for ad personalization.</p>
                 
                 <h3>3. Use of Information</h3>
-                <ul>
+                <ul style="padding-left: 1.5rem; margin-bottom: 1rem;">
                     <li>To provide and improve our ad automation services</li>
                     <li>To communicate with you about service updates or offers</li>
                     <li>To conduct analytics and measure service effectiveness</li>
@@ -588,16 +87,15 @@
                 <p>We reserve the right to modify this policy, with changes posted on our website.</p>
                 
                 <h3>8. Contact Information</h3>
-                <div class="contact-info">
-                    <p>For any privacy-related questions, please contact us at <a href="mailto:fresho-support@fresho.com">fresho-support@fresho.com</a></p>
+                <div class="card card-feature">
+                    <p>For any privacy-related questions, please contact us at <a href="mailto:hello@fresho.dev" style="text-decoration: underline;">hello@fresho.dev</a></p>
                 </div>
             </div>
 
-            <!-- Terms of Service -->
-            <div class="policy-section">
-                <h2>Terms of Service</h2>
+            <div class="card bg-white card-bordered">
+                <h2 style="border-bottom: 2px solid var(--black); padding-bottom: 1rem;">Terms of Service</h2>
                 
-                <h3>1. Introduction</h3>
+                <h3 class="mt-md" style="margin-top: 2rem;">1. Introduction</h3>
                 <p>These terms govern your use of Fresho's ad automation platform. By using our service, you agree to these terms.</p>
                 
                 <h3>2. Use of Service</h3>
@@ -622,8 +120,8 @@
                 <p>Fresho's use and transfer to any other app of information received from Google APIs will adhere to Google API Services User Data Policy, including the Limited Use requirements.</p>
                 
                 <h3>9. Contact Information</h3>
-                <div class="contact-info">
-                    <p>For any service-related inquiries, contact us at <a href="mailto:fresho-support@fresho.com">fresho-support@fresho.com</a></p>
+                <div class="card card-feature">
+                    <p>For any service-related inquiries, contact us at <a href="mailto:hello@fresho.dev" style="text-decoration: underline;">hello@fresho.dev</a></p>
                 </div>
             </div>
             
@@ -631,98 +129,26 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div style="margin-bottom: 1rem;">
-                        <a href="index.html" style="text-decoration: none;">
-                            <img src="fresho.png" alt="Fresho Logo" style="height: 50px; filter: brightness(0) invert(1); opacity: 0.9; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
-                        </a>
-                    </div>
-                    <p>AI-powered Google Ads automation that delivers real results. Save time, reduce costs, and scale your campaigns with confidence.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/fresho-dev" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
-                        <a href="mailto:hello@fresho.dev" target="_blank" rel="noopener noreferrer" title="Email">📧</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="index.html#features">Features</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                        <li><a href="#">Integrations</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Status</a></li>
-                    </ul>
-                </div>
+    <footer class="footer">
+        <div class="container flex-between flex-row">
+            <div class="logo">
+                <img src="fresho.png" alt="Fresho" style="height: 32px;">
             </div>
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    © 2025 Fresho. All rights reserved.
-                </div>
-                <div class="footer-legal">
-                    <a href="#" style="color: white;">Privacy Policy</a>
-                    <a href="#" style="color: white;">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
+            <div class="nav-links">
+                <a href="mailto:hello@fresho.dev">Contact</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="privacy-policy.html">Terms</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
-
-        function toggleMobileMenu() {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            mobileOverlay.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        hamburger.addEventListener('click', toggleMobileMenu);
-        mobileOverlay.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when clicking on links
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('active')) {
-                    toggleMobileMenu();
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-            }
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
         });
     </script>
 </body>

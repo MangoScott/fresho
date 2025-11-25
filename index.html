@@ -4,769 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresho - Google Ads, Automated by AI</title>
-    
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <meta property="og:title" content="Fresho - The Automatic Lead Generator">
     <meta property="og:description" content="Turnkey customer acquisition. Stop managing ads. Start getting leads.">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --black: #000000;
-            --white: #ffffff;
-            --gray: #888888;
-            --light-gray: #f7f7f7;
-            --max-width: 1200px;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.5;
-            font-size: 18px;
-            overflow-x: hidden;
-        }
-        
-        /* Navigation - Ultra Simple */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--white);
-            z-index: 1000;
-            padding: 2rem 0;
-            transition: all 0.3s ease;
-        }
-        
-        nav.scrolled {
-            box-shadow: 0 1px 0 0 var(--black);
-        }
-        
-        .nav-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            text-decoration: none;
-            display: inline-block;
-            line-height: 0;
-        }
-        
-        .logo img {
-            height: 36px;
-            transition: opacity 0.2s ease;
-        }
-        
-        .logo:hover img {
-            opacity: 0.7;
-        }
-        
-        .nav-right {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-right a {
-            color: var(--black);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: opacity 0.2s ease;
-        }
-        
-        .nav-right a:hover {
-            opacity: 0.5;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--black);
-            padding: 0.75rem 1.75rem;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--black);
-            transition: all 0.2s ease;
-            display: inline-block;
-        }
-        
-        .btn-secondary:hover {
-            background: var(--black);
-            color: var(--white) !important;
-            opacity: 1 !important;
-        }
-        
-        .btn-start {
-            background: var(--black);
-            color: var(--white) !important;
-            padding: 0.75rem 2rem;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s ease;
-            display: inline-block;
-        }
-        
-        .btn-start:hover {
-            transform: scale(0.95);
-            opacity: 1 !important;
-        }
-        
-        /* Hero - Massive Statement */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 2rem 6rem;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: var(--max-width);
-            width: 100%;
-        }
-        
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: -0.04em;
-            margin-bottom: 3rem;
-        }
-        
-        .hero h1 .strike {
-            text-decoration: line-through;
-            opacity: 0.3;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            line-height: 1.4;
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-hero {
-            background: var(--black);
-            color: var(--white);
-            padding: 1.25rem 3rem;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.25rem;
-            transition: transform 0.2s ease;
-            display: inline-block;
-        }
-        
-        .btn-hero:hover {
-            transform: scale(0.95);
-        }
-        
-        .hero-note {
-            color: var(--gray);
-            font-size: 1rem;
-            margin-left: 1rem;
-        }
-        
-        /* Proof Section - Single Line */
-        .proof {
-            padding: 6rem 2rem;
-            border-top: 2px solid var(--black);
-            border-bottom: 2px solid var(--black);
-        }
-        
-        .proof-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 4rem;
-            text-align: center;
-        }
-        
-        .proof-stat {
-            font-size: 3rem;
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .proof-label {
-            font-size: 1rem;
-            color: var(--gray);
-        }
-        
-        /* How It Works - Ultra Simple */
-        .how {
-            padding: 8rem 2rem;
-        }
-        
-        .how-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        
-        .how h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 5rem;
-            letter-spacing: -0.03em;
-        }
-        
-        .how-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-        }
-        
-        .how-step {
-            position: relative;
-        }
-        
-        .step-number {
-            font-size: 8rem;
-            font-weight: 900;
-            opacity: 0.05;
-            position: absolute;
-            top: -3rem;
-            left: -1rem;
-            z-index: -1;
-        }
-        
-        .step-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-        
-        .step-description {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-        
-        /* Compare Section - Bold Statement */
-        .compare {
-            padding: 8rem 2rem;
-            background: var(--black);
-            color: var(--white);
-        }
-        
-        .compare-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        
-        .compare h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 4rem;
-            letter-spacing: -0.03em;
-        }
-        
-        .compare-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-        
-        .compare-col h3 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.5;
-        }
-        
-        .compare-col.fresho h3 {
-            opacity: 1;
-        }
-        
-        .compare-list {
-            list-style: none;
-        }
-        
-        .compare-list li {
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 1.1rem;
-        }
-        
-        .compare-col.others li {
-            opacity: 0.5;
-        }
-        
-        /* Pricing - Three Options */
-        .pricing {
-            padding: 8rem 2rem;
-            text-align: center;
-        }
-        
-        .pricing-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        
-        .pricing h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 4rem;
-            letter-spacing: -0.03em;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .pricing-card {
-            padding: 3rem 2rem;
-            border: 2px solid var(--black);
-            position: relative;
-        }
-        
-
-        
-
-        
-        .plan-name {
-            font-size: 0.875rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-            opacity: 0.6;
-        }
-        
-
-        
-        .price {
-            font-size: 3.5rem;
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .price-period {
-            font-size: 1rem;
-            opacity: 0.6;
-            margin-bottom: 2rem;
-        }
-        
-        .pricing-features {
-            text-align: left;
-            margin-bottom: 2rem;
-            min-height: 150px;
-        }
-        
-        .pricing-features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            list-style: none;
-            font-size: 0.95rem;
-        }
-        
-
-        
-        .pricing-cta {
-            padding: 1rem 2rem;
-            background: var(--black);
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            transition: transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .pricing-card.featured .pricing-cta {
-            background: var(--black);
-            color: var(--white);
-        }
-        
-        .pricing-cta:hover {
-            transform: scale(0.95);
-        }
-        
-        /* FAQ - Minimal */
-        .faq {
-            padding: 8rem 2rem;
-            background: var(--light-gray);
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 4rem;
-            letter-spacing: -0.03em;
-        }
-        
-        .faq-item {
-            padding: 2rem 0;
-            border-bottom: 2px solid var(--black);
-            cursor: pointer;
-        }
-        
-        .faq-question {
-            font-size: 1.25rem;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-toggle {
-            font-size: 2rem;
-            font-weight: 300;
-            transition: transform 0.3s ease;
-        }
-        
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-        
-        .faq-answer-content {
-            padding-top: 1.5rem;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-        
-        /* Final CTA */
-        .final-cta {
-            padding: 10rem 2rem;
-            text-align: center;
-        }
-        
-        .final-cta h2 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 3rem;
-            letter-spacing: -0.03em;
-            line-height: 0.9;
-        }
-        
-        /* Footer - Minimal */
-        footer {
-            padding: 4rem 2rem 2rem;
-            border-top: 2px solid var(--black);
-        }
-        
-        .footer-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        
-        .footer-left {
-            font-weight: 900;
-            font-size: 1.5rem;
-        }
-        
-        .footer-right {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .footer-right a {
-            color: var(--black);
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-        
-        .footer-right a:hover {
-            opacity: 0.5;
-        }
-        
-        .mobile-signin {
-            display: none;
-            background: transparent;
-            color: var(--black);
-            padding: 0.5rem 1.25rem;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--black);
-            transition: all 0.2s ease;
-        }
-        
-        .mobile-signin:hover {
-            background: var(--black);
-            color: var(--white) !important;
-            opacity: 1 !important;
-        }
-        
-        /* Mobile */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-        
-        .mobile-menu-btn span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: var(--black);
-            margin: 6px 0;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100vh;
-            background: var(--white);
-            z-index: 999;
-            padding: 6rem 2rem;
-            transition: right 0.3s ease;
-        }
-        
-        .mobile-menu.active {
-            right: 0;
-        }
-        
-        .mobile-menu a {
-            display: block;
-            padding: 1.5rem 0;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--black);
-            text-decoration: none;
-            border-bottom: 2px solid var(--black);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-right {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .mobile-signin {
-                display: inline-block;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero {
-                padding-top: 5rem;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero-subtitle {
-                margin-bottom: 1.5rem;
-            }
-            
-            .partner-badge {
-                margin-bottom: 1.5rem !important;
-            }
-            
-            .compare-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .how-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .proof-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-            
-            .footer-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .footer-right {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav id="nav">
-        <div class="nav-container">
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-wrapper">
             <a href="#" class="logo">
-                <img src="fresho.png" alt="Fresho" style="height: 36px;">
+                <img src="fresho.png" alt="Fresho">
             </a>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <div class="nav-right">
-                    <a href="#how">How it works</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="https://app.fresho.dev/signin/" class="btn-secondary" target="_blank" rel="noopener noreferrer">Sign In</a>
-                    <a href="https://app.fresho.dev/signin/" class="btn-start" target="_blank" rel="noopener noreferrer">Start Free</a>
-                </div>
-                <a href="https://app.fresho.dev/signin/" class="btn-secondary mobile-signin" target="_blank" rel="noopener noreferrer">Sign In</a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="businesses.html">For Businesses</a>
+                <a href="nonprofits.html">For Nonprofits</a>
+                <a href="about.html">About</a>
+                <a href="https://app.fresho.dev/signin/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Start Free</a>
             </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="https://app.fresho.dev/signin/" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="businesses.html">For Businesses</a>
+        <a href="nonprofits.html">For Nonprofits</a>
+        <a href="about.html">About</a>
+        <a href="mailto:hello@fresho.dev">Contact</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="privacy-policy.html">Terms</a>
     </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>
-                <span class="strike">Manage Ads</span><br>
-                Get Leads.<br>
-                On Autopilot.
-            </h1>
-            <p class="hero-subtitle">
-                The automatic customer finder. 
-                Stop selling "ads". Start selling traffic and sales.
-            </p>
-            <div style="margin-bottom: 2rem;" class="partner-badge">
-                <a href="https://www.google.com/partners/agency?id=4582016548" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   style="color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: opacity 0.2s ease;">
-                   ✓ Google Ads Certified Partner
-                </a>
-            </div>
-            <div class="hero-cta">
-                <a href="https://app.fresho.dev/signin/" class="btn-hero" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
-                <span class="hero-note">Turnkey results. No "management" fees.</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="proof">
-        <div class="proof-container">
-            <div>
-                <div class="proof-stat">$1M+</div>
-                <div class="proof-label">Ad spend managed</div>
-            </div>
-            <div>
-                <div class="proof-stat">100%</div>
-                <div class="proof-label">Automated Delivery</div>
-            </div>
-            <div>
-                <div class="proof-stat">47%</div>
-                <div class="proof-label">Lower Cost Per Lead</div>
-            </div>
-            <div>
-                <div class="proof-stat">24/7</div>
-                <div class="proof-label">Lead Generation</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="how" id="how">
-        <div class="how-container">
-            <h2>Three steps.<br>Then it's automatic.</h2>
-            <div class="how-grid">
-                <div class="how-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Connect</h3>
-                    <p class="step-description">Link any Google Ads account. Takes 30 seconds. No technical setup.</p>
-                </div>
-                <div class="how-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Target</h3>
-                    <p class="step-description">Tell us about your business or service. We auto-generate high-intent keywords and copy.</p>
-                </div>
-                <div class="how-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Receive</h3>
-                    <p class="step-description">Campaigns launch instantly. You get exclusive leads. No manual optimization required.</p>
+    <!-- Hero -->
+    <section class="section section-lg">
+        <div class="container">
+            <div class="grid grid-narrow" style="align-items: center;">
+                <div>
+                    <h1>
+                        <span class="strike">Manage Ads</span><br>
+                        Get Leads.<br>
+                        On Autopilot.
+                    </h1>
+                    <p class="text-large">
+                        The automatic customer finder. Stop selling "ads". Start selling traffic and sales.
+                    </p>
+                    <div class="mb-md">
+                        <a href="https://www.google.com/partners/agency?id=4582016548" target="_blank" rel="noopener noreferrer" style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; color: var(--gray); text-decoration: none;">
+                           ✓ Google Ads Certified Partner
+                        </a>
+                    </div>
+                    <div class="flex-row">
+                        <a href="https://app.fresho.dev/signin/" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+                        <span class="text-small" style="color: var(--gray);">Turnkey results.</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="compare">
-        <div class="compare-container">
+    <!-- Stats / Proof -->
+    <section class="section" style="border-top: 2px solid var(--black); border-bottom: 2px solid var(--black);">
+        <div class="container">
+            <div class="grid">
+                <div class="stat-item">
+                    <div class="stat-value">$1M+</div>
+                    <div class="stat-label">Ad spend managed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Automated Delivery</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">47%</div>
+                    <div class="stat-label">Lower Cost Per Lead</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Lead Generation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="section">
+        <div class="container">
+            <div class="grid">
+                <div>
+                    <h2>Three steps.<br>Then it's automatic.</h2>
+                </div>
+                <div class="flex-col">
+                    <div class="card">
+                        <h3>1. Connect</h3>
+                        <p>Link any Google Ads account. Takes 30 seconds. No technical setup.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. Target</h3>
+                        <p>Tell us about your business or service. We auto-generate high-intent keywords and copy.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. Receive</h3>
+                        <p>Campaigns launch instantly. You get exclusive leads. No manual optimization required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compare -->
+    <section class="section bg-dark">
+        <div class="container">
             <h2>Stop trading time for money.</h2>
-            <div class="compare-grid">
-                <div class="compare-col others">
+            <div class="grid">
+                <div class="card" style="opacity: 0.7;">
                     <h3>The Old Way</h3>
-                    <ul class="compare-list">
+                    <ul class="flex-col" style="list-style: none;">
                         <li>Manual keyword research</li>
                         <li>Constantly tweaking bids</li>
                         <li>Time-consuming setup</li>
@@ -774,9 +136,9 @@
                         <li>Complex dashboards</li>
                     </ul>
                 </div>
-                <div class="compare-col fresho">
+                <div class="card">
                     <h3>The Fresho Way</h3>
-                    <ul class="compare-list">
+                    <ul class="flex-col" style="list-style: none; font-weight: 700;">
                         <li>Marketing on autopilot</li>
                         <li>Works for any budget size</li>
                         <li>Exclusive, high-intent leads</li>
@@ -788,176 +150,134 @@
         </div>
     </section>
 
-    <section class="pricing" id="pricing">
-        <div class="pricing-container">
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+        <div class="container text-center">
             <h2>Simple pricing.<br>No surprises.</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="plan-name">STARTER</div>
-                    <div class="price">$249</div>
-                    <div class="price-period">per month</div>
-                    <ul class="pricing-features">
+            <div class="grid grid-narrow">
+                <!-- Starter -->
+                <div class="price-card">
+                    <div class="stat-label">STARTER</div>
+                    <div class="price-val">$249</div>
+                    <p>per month</p>
+                    <ul class="price-list">
                         <li>1 Account</li>
                         <li>Ideal for single businesses</li>
                         <li>Unlimited campaigns</li>
                         <li>24/7 optimization</li>
                     </ul>
-                    <a href="https://app.fresho.dev/signin/" class="pricing-cta" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+                    <a href="https://app.fresho.dev/signin/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
                 </div>
                 
-                <div class="pricing-card">
-                    <div class="plan-name">AGENCY</div>
-                    <div class="price">$889</div>
-                    <div class="price-period">per month</div>
-                    <ul class="pricing-features">
+                <!-- Agency -->
+                <div class="price-card">
+                    <div class="stat-label">AGENCY</div>
+                    <div class="price-val">$889</div>
+                    <p>per month</p>
+                    <ul class="price-list">
                         <li>5 Accounts included</li>
                         <li>Perfect for multiple brands</li>
                         <li>Priority support</li>
                         <li>White-label reports</li>
                     </ul>
-                    <a href="https://app.fresho.dev/signin/" class="pricing-cta" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
+                    <a href="https://app.fresho.dev/signin/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Start Free Trial</a>
                 </div>
                 
-                <div class="pricing-card">
-                    <div class="plan-name">ENTERPRISE</div>
-                    <div class="price">Custom</div>
-                    <div class="price-period">contact us</div>
-                    <ul class="pricing-features">
+                <!-- Enterprise -->
+                <div class="price-card">
+                    <div class="stat-label">ENTERPRISE</div>
+                    <div class="price-val">Custom</div>
+                    <p>contact us</p>
+                    <ul class="price-list">
                         <li>Unlimited accounts</li>
                         <li>Custom integrations</li>
                         <li>Custom onboarding</li>
                         <li>Dedicated account manager</li>
                     </ul>
-                    <a href="mailto:hello@fresho.dev" class="pricing-cta" target="_blank" rel="noopener noreferrer">Contact Sales</a>
+                    <a href="mailto:hello@fresho.dev" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Contact Sales</a>
                 </div>
             </div>
-            <p style="margin-top: 2rem; color: var(--gray); font-size: 1rem;">
-                14-day free trial. No credit card required.
-            </p>
+            <p class="mt-md" style="margin-top: 2rem;">14-day free trial. No credit card required.</p>
         </div>
     </section>
 
-    <section class="faq" id="faq">
-        <div class="faq-container">
+    <!-- FAQ -->
+    <section class="section bg-light" id="faq">
+        <div class="container">
             <h2>Frequently Asked<br>Questions</h2>
             
-            <div class="faq-item">
-                <div class="faq-question">
-                    What is Fresho?
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Fresho is the "easy button" for Google Ads. We turned complex ad management into a utility. Tell us about your business or service, and we automatically generate, launch, and optimize campaigns to get you exclusive leads. No keywords to manage, no bids to tweak.
-                    </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger">
+                    What is Fresho? <span>+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>Fresho is the "easy button" for Google Ads. We turned complex ad management into a utility. Tell us about your business or service, and we automatically generate, launch, and optimize campaigns to get you exclusive leads.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    Who is Fresho for?
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Fresho is for any business that wants more customers without the complexity of traditional ad management. If you need a consistent stream of high-intent leads and sales, but don't want to become a marketing expert, Fresho is for you.
-                    </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger">
+                    Who is Fresho for? <span>+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>Fresho is for any business that wants more customers without the complexity of traditional ad management. If you need a consistent stream of high-intent leads and sales, but don't want to become a marketing expert, Fresho is for you.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    Do I need to know Google Ads?
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        No. Fresho is designed for simplicity. We built it for people who want results (calls, leads, sales), not for people who want to tinker with ad settings. If you prefer a system that just works to bring you customers, you're in the right place.
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    When should I start?
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        If you have a business and want more customers, start now. It takes less than 5 minutes to go from "signup" to "ads live". Stop losing customers to competitors who are already showing up in search results.
-                    </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger">
+                    Do I need to know Google Ads? <span>+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>No. Fresho is designed for simplicity. We built it for people who want results (calls, leads, sales), not for people who want to tinker with ad settings.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="final-cta">
-        <h2>Your competitors<br>are getting leads.<br>Are you?</h2>
-        <a href="https://app.fresho.dev/signin/" class="btn-hero" target="_blank" rel="noopener noreferrer">Start Your Autopilot</a>
+    <!-- Final CTA -->
+    <section class="section section-lg text-center">
+        <div class="container">
+            <h2>Your competitors<br>are getting leads.<br>Are you?</h2>
+            <a href="https://app.fresho.dev/signin/" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Turn on Autopilo</a>
+        </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-left">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container flex-between flex-row">
+            <div class="logo">
                 <img src="fresho.png" alt="Fresho" style="height: 32px;">
             </div>
-            <div class="footer-right">
-                <a href="about.html">About</a>
-                <a href="mailto:hello@fresho.dev" target="_blank" rel="noopener noreferrer">Contact</a>
-                <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
-                <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Terms</a>
+            <div class="nav-links">
+                <a href="mailto:hello@fresho.dev">Contact</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="privacy-policy.html">Terms</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Minimal JS for interactions
-        const nav = document.getElementById('nav');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
         
-        // Scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
         });
-        
-        // Mobile menu
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // Close mobile menu when clicking links
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // FAQ
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
+
+        // FAQ Logic
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.parentElement;
                 item.classList.toggle('active');
-            });
-        });
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                
+                // Optional: Rotate icon
+                const icon = trigger.querySelector('span');
+                icon.style.transform = item.classList.contains('active') ? 'rotate(45deg)' : 'rotate(0deg)';
+                icon.style.display = 'inline-block';
+                icon.style.transition = 'transform 0.3s';
             });
         });
     </script>
