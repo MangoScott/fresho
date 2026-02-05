@@ -9,6 +9,37 @@
     <meta property="og:title" content="Fresho - The Automatic Lead Generator">
     <meta property="og:description" content="Turnkey customer acquisition. Stop managing ads. Start getting leads.">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Rotating Text Animation */
+        .rotating-text-wrapper {
+            display: inline-block;
+            position: relative;
+            min-width: 280px;
+        }
+
+        .rotating-text {
+            display: inline-block;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .rotating-text.fade-out {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .rotating-text.fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @media (max-width: 768px) {
+            .rotating-text-wrapper {
+                min-width: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -29,11 +60,15 @@
                     rel="noopener noreferrer">Start Free</a>
             </div>
 
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="mobile-nav-actions">
+                <a href="https://app.fresho.dev/signin/" class="mobile-signin" target="_blank"
+                    rel="noopener noreferrer">Sign In</a>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -55,18 +90,23 @@
                 <div>
                     <h1>
                         <span class="strike">Manage Ads</span><br>
-                        Get Leads.<br>
+                        Get <span class="rotating-text-wrapper"><span class="rotating-text"></span></span><br>
                         On Autopilot.
                     </h1>
                     <p class="text-large">
-                        The automatic customer finder. Stop paying for "ads". Start getting traffic and sales.
+                        Drop a URL. Fresho creates high-quality ads in your voice, publishes them, and manages
+                        everything monthly. You get customers calling—while you focus on running your business.
                     </p>
-                    <div class="mb-md">
+                    <div class="mb-md"
+                        style="display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center;">
                         <a href="https://www.google.com/partners/agency?id=4582016548" target="_blank"
                             rel="noopener noreferrer"
                             style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; color: var(--gray); text-decoration: none;">
                             ✓ Google Ads Certified Partner
                         </a>
+                        <span style="font-weight: 600; font-size: 0.9rem; color: var(--gray);">
+                            Works great for local services & DTC brands
+                        </span>
                     </div>
                     <div class="flex-row">
                         <a href="https://app.fresho.dev/signin/" class="btn btn-primary btn-lg" target="_blank"
@@ -87,8 +127,8 @@
                     <div class="stat-label">Ad spend managed</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">Automated Delivery</div>
+                    <div class="stat-value">3x</div>
+                    <div class="stat-label">Better Performance</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">47%</div>
@@ -97,6 +137,33 @@
                 <div class="stat-item">
                     <div class="stat-value">24/7</div>
                     <div class="stat-label">Lead Generation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="section">
+        <div class="container">
+            <div class="grid" style="align-items: center; gap: var(--spacing-lg);">
+                <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                    <img src="henry.jpeg" alt="Henry Morris"
+                        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                    <div style="flex: 1; min-width: 280px;">
+                        <p
+                            style="font-size: 1.5rem; font-weight: 400; line-height: 1.6; color: var(--black); max-width: 100%;">
+                            "Huge fan of Fresho and what they've done to optimize our Google AdWords Grant funds.
+                            Working for small to midsize nonprofits, there are simply too many hats to dive deep into
+                            the complicated world behind these ads, and Fresho has made it easy and productive. Thanks,
+                            Scott!"
+                        </p>
+                        <div style="margin-top: 1.5rem;">
+                            <p style="font-weight: 700; color: var(--black); margin-bottom: 0.25rem;">Henry Morris</p>
+                            <p style="color: var(--gray); margin-bottom: 0;">Director of Marketing & Donor Engagement
+                            </p>
+                            <p style="color: var(--gray);">Women's Lunch Place</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,6 +316,7 @@
         </div>
     </section>
 
+
     <!-- Final CTA -->
     <section class="section section-lg text-center">
         <div class="container">
@@ -295,6 +363,34 @@
                 icon.style.transition = 'transform 0.3s';
             });
         });
+
+        // Rotating Text Animation
+        const rotatingWords = ['Leads.', 'New Customers.', 'Calls.', 'Appointments.', 'Revenue.'];
+        let currentIndex = 0;
+        const rotatingText = document.querySelector('.rotating-text');
+
+        function updateRotatingText() {
+            // Fade out
+            rotatingText.classList.add('fade-out');
+
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % rotatingWords.length;
+                rotatingText.textContent = rotatingWords[currentIndex];
+                rotatingText.classList.remove('fade-out');
+                rotatingText.classList.add('fade-in');
+
+                // Trigger reflow and fade in
+                setTimeout(() => {
+                    rotatingText.classList.remove('fade-in');
+                }, 50);
+            }, 400);
+        }
+
+        // Initialize with first word
+        rotatingText.textContent = rotatingWords[0];
+
+        // Start rotation
+        setInterval(updateRotatingText, 2500);
     </script>
 </body>
 

@@ -273,11 +273,28 @@ p {
     display: none;
 }
 
+.mobile-nav-actions {
+    display: none;
+}
+
+.mobile-signin {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--black);
+}
+
 @media (max-width: 768px) {
 
     .nav .nav-links,
     .footer .nav-links {
         display: none;
+    }
+
+    .mobile-nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 
     .menu-toggle {
