@@ -340,6 +340,15 @@ p {
         padding-bottom: 1rem;
     }
 
+    /* Mobile hero adjustments */
+    .section-lg {
+        padding: 3rem 0;
+    }
+
+    .hero .text-large {
+        font-size: 1rem;
+    }
+
     /* Hide hero accent bar on mobile - REMOVED */
     /* .hero::before {
         display: none;
