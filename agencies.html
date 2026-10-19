@@ -126,7 +126,7 @@
                     </div>
                     <div class="card">
                         <h3>It All Lives in Their Account</h3>
-                        <p>Campaigns are built directly in your clients' Google Ads accounts through your MCC. No
+                        <p>Connect each client's Google Ads account; campaigns are built directly in that account. No
                             lock-in, no migration, nothing held hostage.</p>
                     </div>
                 </div>
@@ -259,13 +259,13 @@
         <div class="container text-center">
             <h2>Pricing that protects<br>your margins.</h2>
             <p style="max-width: 600px; margin: 0 auto 2rem;">
-                Whether you manage one client account or an entire MCC, there's a tier that fits.
+                Whether you manage one client or twenty, add accounts as you grow.
             </p>
             <div class="grid grid-narrow">
                 <!-- Starter -->
                 <div class="price-card bg-white">
                     <div class="stat-label">STARTER</div>
-                    <div class="price-val">$249</div>
+                    <div class="price-val" data-price="Starter">$249</div>
                     <p>per month</p>
                     <ul class="price-list">
                         <li>1 client account</li>
@@ -280,10 +280,10 @@
                 <!-- Growth -->
                 <div class="price-card bg-white">
                     <div class="stat-label">GROWTH</div>
-                    <div class="price-val">$889</div>
+                    <div class="price-val" data-price="Growth">$889</div>
                     <p>per month</p>
                     <ul class="price-list">
-                        <li>Up to 5 client accounts (~$178 each)</li>
+                        <li>Up to 5 client accounts</li>
                         <li>White-label reports</li>
                         <li>Unlimited campaigns</li>
                         <li>24/7 optimization</li>
@@ -300,7 +300,6 @@
                     <p>contact us</p>
                     <ul class="price-list">
                         <li>6+ client accounts</li>
-                        <li>MCC-level rollout support</li>
                         <li>Custom integrations</li>
                         <li>Custom onboarding</li>
                         <li>Dedicated account manager</li>
@@ -323,8 +322,8 @@
                     Will my clients know we use Fresho? <span>+</span>
                 </button>
                 <div class="accordion-content">
-                    <p>No. Everything is white-labeled end to end. Campaigns are built inside your clients' Google Ads
-                        accounts through your MCC, and reports carry your agency's brand. Your clients see your team
+                    <p>No. Everything is white-labeled end to end. Campaigns are built inside each client's own Google Ads
+                        account, and reports carry your agency's brand. Your clients see your team
                         delivering the results.</p>
                 </div>
             </div>
@@ -400,6 +399,7 @@
         </div>
     </footer>
 
+    <script src="prices.js" defer></script>
     <script>
         // Mobile Menu Logic
         const menuToggle = document.getElementById('menuToggle');
