@@ -51,7 +51,11 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-R685N7L2FC', { linker: { domains: ['fresho.dev', 'app.fresho.dev'] } });
+        gtag('config', 'G-R685N7L2FC', {
+            linker: { domains: ['fresho.dev', 'app.fresho.dev'] },
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+        });
     </script>
 </head>
 
